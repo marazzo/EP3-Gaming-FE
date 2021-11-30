@@ -1,13 +1,15 @@
-import logo from './logo.svg';
+// import Button from '@material-ui/core/Button';
 import './App.css';
-import SignUpForm from './components/UserSignUp'
+import SignUp from './components/SignUp'
 
-function App() {
+import { useState } from 'react';
+
+const App = () => {
   return (
     <div className="App">
-      <SignUpForm/>
+      <SignUp/>
     </div>
   );
-}
+};
 
 export default App;
