@@ -9,10 +9,9 @@ export const GameView = () => {
 
   return (
     <div>
-      <button onClick={changeTurn}>Attack</button>
       <div>Score: { game.score }</div>
       <div>Health: { game.health }</div>
-      <div>Are you dead? { game.isDead ? "yes" : "no" }</div>
+      <div>{ game.isDead ? "You are dead" : <button onClick={changeTurn}>Attack</button> }</div>
     </div>
   )
 }
