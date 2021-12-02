@@ -1,5 +1,6 @@
 import { useGameAPI } from "../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
+import { Scoreboard } from "./Scoreboard";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
