@@ -24,13 +24,11 @@ const useStyles = makeStyles(theme => ({
 const SignUp= () => {
   const classes = useStyles();
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(username, email, password);
-    callAPI(username, email, password)
+    callAPI(username, password)
   };
 
 
@@ -42,14 +40,6 @@ const SignUp= () => {
         required
         value={username}
         onChange={e => setUsername(e.target.value)}
-      />
-      <TextField
-        label="Email"
-        variant="filled"
-        type="email"
-        required
-        value={email}
-        onChange={e => setEmail(e.target.value)}
       />
       <TextField
         label="Password"
@@ -68,8 +58,8 @@ const SignUp= () => {
   );
 };
 
-const callAPI = (username, email, password)=>{
-  const user = {username: username.value, email: email.value, password: password.value};
+const callAPI = (username, password)=>{
+  const user = {username: username,password: password};
   const options = {
     method: 'post',
     headers: {
@@ -77,7 +67,7 @@ const callAPI = (username, email, password)=>{
     },
     body: JSON.stringify(user)
   }
-  fetch('localhost:5000', options) //this needs to be fetching the backend  - needs actual url
+  fetch('http://localhost:5000/signup', options)
     .then(response =>{
       response.json()
     }).then(data =>{
