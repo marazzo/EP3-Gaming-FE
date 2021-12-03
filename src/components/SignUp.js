@@ -68,7 +68,7 @@ const callAPI = (username, password) => {
   };
   fetch("http://localhost:3000/signup", options)
     .then((response) => {
-      response.json();
+      return response.json();
     })
     .then((data) => {
       console.log(data);
