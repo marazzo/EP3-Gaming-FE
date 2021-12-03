@@ -5,6 +5,12 @@ import { Scoreboard } from "./Scoreboard";
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
 
+  const handleKeyPress = (event) => {
+    if(event.code === 'Space'){
+      changeTurn()
+    }
+  }
+  
   return (
     <div>
       <div>Score: {game.score}</div>
@@ -13,7 +19,7 @@ export const GameView = () => {
         {game.isDead ? (
           <GameOver />
         ) : (
-          <button onClick={changeTurn}>Attack</button>
+          <button onKeyPress={handleKeyPress}>Attack</button>
         )}
       </div>
     </div>
