@@ -3,11 +3,27 @@ import LogIn from "./LogIn";
 import { useState } from "react";
 
 
-export const HomePage = ({ setShowLogin }) => {
+export const HomePage = () => {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false)
+
+  const logIn = () => {
+    setShowLogin(true)
+    setShowSignup(false)
+  }
+
+  const signUp = () => {
+    setShowLogin(false)
+    setShowSignup(true)
+  }
+
   return (
     <div>
-      <button onClick={() => setShowLogin(true)}>Log In</button>
-      <button onClick={() => setShowLogin(false)}>Sign Up</button>
+      <h1>ATT & DIE</h1>
+      <button onClick={logIn}>Log In</button>
+      <button onClick={signUp}>Sign Up</button>
+      {showLogin ? <LogIn /> :""}
+      {showSignup ? <SignUp /> : "" }
     </div>
   );
 }
