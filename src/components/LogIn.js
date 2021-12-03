@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = () => {
+const LogIn = () => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +50,7 @@ const SignUp = () => {
       />
       <div>
         <Button type="submit" variant="contained" color="primary">
-          Signup
+          Log In
         </Button>
       </div>
     </form>
@@ -63,10 +63,11 @@ const callAPI = (username, password) => {
     method: "post",
     headers: {
       "Content-Type": "application/json",
+      "Accept": "application/json",
     },
     body: JSON.stringify(user),
   };
-  fetch("http://localhost:3000/signup", options)
+  fetch("http://localhost:3000/login", options)
     .then((response) => {
       response.json();
     })
@@ -78,4 +79,4 @@ const callAPI = (username, password) => {
     });
 };
 
-export default SignUp;
+export default LogIn;

@@ -1,14 +1,16 @@
 // import Button from '@material-ui/core/Button';
-import './App.css';
-import SignUp from './components/SignUp'
-import { GameView } from './components/Game';
+import "./App.css";
+import { GameView } from "./components/Game";
+import { HomePage } from "./components/HomePage";
 
 const App = () => {
+
+
   return (
     <div>
       <div className="App">
-        <SignUp />
-      </div>
+      <HomePage />
+     </div>
       <div className="Game">
         <GameView />
       </div>
