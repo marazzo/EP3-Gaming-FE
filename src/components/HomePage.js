@@ -1,6 +1,7 @@
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 import { useState } from "react";
+import Button from "@material-ui/core/Button"
 
 
 export const HomePage = () => {
@@ -20,8 +21,8 @@ export const HomePage = () => {
   return (
     <div>
       <h1>ATT & DIE</h1>
-      <button onClick={logIn}>Log In</button>
-      <button onClick={signUp}>Sign Up</button>
+      <Button onClick={logIn} variant="contained" color="primary">Log In</Button>
+      <Button onClick={signUp} variant="contained" color="primary">Sign Up</Button>
       {showLogin ? <LogIn /> :""}
       {showSignup ? <SignUp /> : "" }
     </div>
