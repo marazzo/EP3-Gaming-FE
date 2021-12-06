@@ -1,7 +1,7 @@
-import { ShowScoreboardAPI } from "../hooks/showScoreboardAPI";
+import { useScoreboardAPI } from "../../hooks/useScoreboardAPI";
 
 export const Scoreboard = () => {
-  const topTen = ShowScoreboardAPI();
+  const topTen = useScoreboardAPI();
   return (
     <ul>
       Scoreboard:

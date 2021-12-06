@@ -1,4 +1,4 @@
-import { useGameAPI } from "../hooks/useGameAPI";
+import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 
 export const GameView = () => {
