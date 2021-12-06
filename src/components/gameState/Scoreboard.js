@@ -13,15 +13,14 @@ export const Scoreboard = () => {
         <Score key={scoreData._id} userName={scoreData.user} score={scoreData.score} />
       ))}   
 
-      <Link to="/game">
-        <Button variant="contained" color="primary">
-          Play
-        </Button>
-      </Link>
-    
-     
-      <Button variant="contained" color="primary">Logout</Button>
+      <Button component={Link} to="/game" variant="contained" color="primary">
+        Play
+      </Button>
       
+      <Button component={Link} to="/home" variant="contained" color="primary">
+        Logout
+      </Button>
+  
     </>
   );
 };
