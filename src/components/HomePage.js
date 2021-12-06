@@ -22,8 +22,8 @@ export const HomePage = () => {
       <h1>ATT & DIE</h1>
       <Button onClick={logIn} variant="contained" color="primary">Log In</Button>
       <Button onClick={signUp} variant="contained" color="primary">Sign Up</Button>
-      {showLogin ? <LogIn /> : null }
-      {showSignup ? <SignUp /> : null }
+      {showLogin && <LogIn /> }
+      {showSignup && <SignUp /> }
     </div>
   );
 }
