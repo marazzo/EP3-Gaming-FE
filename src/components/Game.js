@@ -1,3 +1,4 @@
+import { Grid } from "@material-ui/core";
 import { useGameAPI } from "../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import Hero from "./game_screen/Hero";
@@ -13,9 +14,11 @@ export const GameView = () => {
   };
 
   return (
-    <div className="game-bg">
-      <Monster/>
-      <Hero />
+    <div className="game-container">
+      <Grid className="game-bg">
+        <Monster />
+        <Hero />
+      </Grid>
       <div>Score: {game.score}</div>
       <div>Health: {game.health}</div>
       <div>
@@ -30,4 +33,3 @@ export const GameView = () => {
     </div>
   );
 };
-

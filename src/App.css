@@ -37,20 +37,28 @@
   }
 }
 
-
 .hero {
-  max-width: 10%;
+  max-width: 12%;
 }
 
 .monster {
   max-width: 20%;
   transform: scaleX(-1);
-
 }
 
 .game-bg {
-  background-image: url('./assets/bg.png');
+  background-image: url("./assets/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  width: 80%;
+  height: 800px;
+  margin: 25px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
