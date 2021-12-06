@@ -16,7 +16,11 @@ export const GameView = () => {
   return (
     <div className="game-container">
       <Grid className="game-bg">
-        <Monster />
+        <Grid item xs={8}>
+          <Item>
+            <Monster />
+          </Item>
+        </Grid>
         <Hero />
       </Grid>
       <div>Score: {game.score}</div>
