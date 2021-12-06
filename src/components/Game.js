@@ -1,6 +1,7 @@
 import { useGameAPI } from "../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import Hero from "./game_screen/Hero";
+import Monster from "./game_screen/Monster";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
@@ -13,6 +14,7 @@ export const GameView = () => {
 
   return (
     <div>
+      <Monster/>
       <Hero />
       <div>Score: {game.score}</div>
       <div>Health: {game.health}</div>

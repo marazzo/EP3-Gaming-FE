@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.hero {
+  max-width: 10%;
+}
+
+.monster {
+  max-width: 20%;
+  transform: scaleX(-1);
+
+}

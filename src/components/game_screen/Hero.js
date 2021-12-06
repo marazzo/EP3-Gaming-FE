@@ -1,13 +1,15 @@
-import { maxWidth } from "@mui/system";
 import React from "react";
 import HeroSprite from "../../assets/hero.png";
+
 
 const Hero = () => {
   return (
     <div>
-      <img src={HeroSprite} alt="hero" style={{ maxWidth: "20%" }} />
+      <img src={HeroSprite} alt="hero" className="hero"/>
     </div>
   );
 };
 
 export default Hero;
+
+
