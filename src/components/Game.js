@@ -1,24 +1,28 @@
 import { useGameAPI } from "../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
+import Hero from "./game_screen/Hero";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
 
   const handleKeyPress = (event) => {
-    if(event.code === 'Space'){
-      changeTurn()
+    if (event.code === "Space") {
+      changeTurn();
     }
-  }
-  
+  };
+
   return (
     <div>
+      <Hero />
       <div>Score: {game.score}</div>
       <div>Health: {game.health}</div>
       <div>
         {game.isDead ? (
           <GameOver />
         ) : (
-          <button onClick={changeTurn} onKeyPress={handleKeyPress}>Attack</button>
+          <button onClick={changeTurn} onKeyPress={handleKeyPress}>
+            Attack
+          </button>
         )}
       </div>
     </div>
