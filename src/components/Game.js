@@ -13,7 +13,7 @@ export const GameView = () => {
   };
 
   return (
-    <div>
+    <div className="game-bg">
       <Monster/>
       <Hero />
       <div>Score: {game.score}</div>
@@ -30,3 +30,4 @@ export const GameView = () => {
     </div>
   );
 };
+
