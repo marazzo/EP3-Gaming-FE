@@ -1,8 +1,8 @@
-import { UpdateScoreAPI } from "../hooks/updateScoreAPI";
+import { useScoreAPI } from "../../hooks/useScoreAPI";
 import { Scoreboard } from "./Scoreboard";
 
 export const GameOver = () => {
-  const [currentScore] = UpdateScoreAPI();
+  const [currentScore] = useScoreAPI();
 
   return (
     <div>

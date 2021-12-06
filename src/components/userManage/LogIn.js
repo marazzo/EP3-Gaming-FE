@@ -58,6 +58,7 @@ const LogIn = () => {
 };
 
 const callAPI = (username, password) => {
+  
   const user = { username: username, password: password };
   const options = {
     method: "post",
@@ -67,12 +68,12 @@ const callAPI = (username, password) => {
     },
     body: JSON.stringify(user),
   };
-  fetch("http://localhost:3000/login", options)
+  fetch("/login", options)
     .then((response) => {
       return response.json()
     })
     .then((data) => {
-      console.log(data);
+      return data
     })
     .catch((err) => {
       console.log(err);

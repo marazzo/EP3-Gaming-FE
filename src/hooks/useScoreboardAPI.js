@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-export const ShowScoreboardAPI = () => {
+export const useScoreboardAPI = () => {
   const [topTen, setTopTen] = useState([]);
 
   const getScoreboard = async () => {
-    const url = "http://localhost:3000/scoreboard";
+    const url = "/scoreboard";
     const res = await fetch(url, { method: "GET" });
     const json = await res.json();
 
