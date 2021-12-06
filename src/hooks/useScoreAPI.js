@@ -7,6 +7,7 @@ export const useScoreAPI = () => {
     const url = "/commit-score";
     const res = await fetch(url, { method: "GET" });
     const json = await res.json();
+    
 
     updateScore(json);
   };
