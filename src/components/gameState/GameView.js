@@ -1,8 +1,9 @@
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
-import HealthBar from "./game_screen/HealthBar";
-import Hero from "./game_screen/Hero";
-import Monster from "./game_screen/Monster";
+import HealthBar from "../game_screen/HealthBar";
+import Hero from "../game_screen/Hero";
+import Monster from "../game_screen/Monster";
+import { Grid } from "@material-ui/core";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
