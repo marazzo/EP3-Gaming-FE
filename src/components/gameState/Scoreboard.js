@@ -13,7 +13,7 @@ export const Scoreboard = () => {
         <Score key={scoreData._id} userName={scoreData.user} score={scoreData.score} />
       ))}   
 
-      <Button component={Link} to="/game" variant="contained" color="primary">
+    <Button component={Link} to="/game" variant="contained" color="primary">
         Play
       </Button>
       
