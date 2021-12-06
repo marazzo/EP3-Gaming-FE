@@ -1,5 +1,5 @@
 .hero {
-  max-width: 12%;
+  max-width: 30%;
   animation-name: moveCharacter;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -7,7 +7,7 @@
 }
 
 .monster {
-  max-width: 20%;
+  max-width: 40%;
   animation-name: moveCharacter;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -20,7 +20,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 80%;
+  width: 80% !important;
   height: 800px;
   margin: 25px;
 }
