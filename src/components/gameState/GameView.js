@@ -4,6 +4,7 @@ import HealthBar from "../game_screen/HealthBar";
 import Hero from "../game_screen/Hero";
 import Monster from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
+import { ExitBox } from "./ExitBox";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
@@ -15,6 +16,7 @@ export const GameView = () => {
   };
   return (
     <div className="game-container">
+        <ExitBox />
       <Grid container className="game-bg">
         <Grid item xs={6}>
           <HealthBar game={game} />

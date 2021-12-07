@@ -5,11 +5,13 @@ import { HomePage } from "./components/HomePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Scoreboard } from "./components/gameState/Scoreboard";
 import { Layout } from "./components/Layout";
+import { Title } from "./components/Title";
 
 const App = () => {
   return (
     <div className="wrapper">
       <Layout>
+        <Title>
         <Router>
           <Routes>
             <Route path="/" element={HomePage()} />
@@ -17,6 +19,7 @@ const App = () => {
             <Route path="/scoreboard" element={Scoreboard()} />
           </Routes>
         </Router>
+        </Title>
       </Layout>
     </div>
   );

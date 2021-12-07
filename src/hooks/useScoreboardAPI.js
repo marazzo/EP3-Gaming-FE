@@ -7,7 +7,6 @@ export const useScoreboardAPI = () => {
     const url = "/scoreboard";
     const res = await fetch(url, { method: "GET" });
     const json = await res.json();
-    console.log(json)
 
     setTopTen(json);
   };

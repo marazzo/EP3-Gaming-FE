@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LogIn = () => {
+export const LogIn = () => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
