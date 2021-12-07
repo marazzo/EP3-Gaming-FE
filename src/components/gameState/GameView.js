@@ -4,6 +4,7 @@ import HealthBar from "../game_screen/HealthBar";
 import Hero from "../game_screen/Hero";
 import Monster from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
+import { Sounds } from "./Sounds";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
@@ -43,7 +44,10 @@ export const GameView = () => {
       <div>Health: {game.health}</div>
       <div>
         {game.isDead ? (
-          <GameOver gameScore={game.score} />
+          <div>
+            <GameOver gameScore={game.score} />
+            <Sounds />
+          </div>
         ) : (
           <button onClick={changeTurn} onKeyPress={handleKeyPress}>
             Attack
