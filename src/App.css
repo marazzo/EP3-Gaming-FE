@@ -12,10 +12,6 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-image: url("./assets/bg.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
 }
 
 .game-container {
@@ -25,10 +21,10 @@
 }
 
 .game-bg {
-  /* background-image: url("./assets/bg.png");
+  background-image: url("./assets/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; */
+  background-position: center;
   width: 100% !important;
   height: 100%;
   position: relative;
