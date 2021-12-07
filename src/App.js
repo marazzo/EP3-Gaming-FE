@@ -6,10 +6,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Scoreboard } from "./components/gameState/Scoreboard";
 import { Layout } from "./components/Layout";
 import { Title } from "./components/Title";
+import { useLoginSession } from "./hooks/useLoginSession";
 
 const App = () => {
+  const isLoggedIn = useLoginSession();
+
   return (
-    <div className="wrapper">
+    <div>
+      {isLoggedIn ? console.log(isLoggedIn) : console.log("Not logged in")}
       <Layout>
         <Title />
         <Router>
