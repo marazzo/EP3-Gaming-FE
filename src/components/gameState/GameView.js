@@ -43,7 +43,7 @@ export const GameView = () => {
       <div>Health: {game.health}</div>
       <div>
         {game.isDead ? (
-          <GameOver />
+          <GameOver gameScore={game.score} />
         ) : (
           <button onClick={changeTurn} onKeyPress={handleKeyPress}>
             Attack
