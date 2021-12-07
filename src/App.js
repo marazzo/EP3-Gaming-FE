@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="wrapper">
       <Layout>
-        <Title>
+        <Title />
         <Router>
           <Routes>
             <Route path="/" element={HomePage()} />
@@ -19,7 +19,6 @@ const App = () => {
             <Route path="/scoreboard" element={Scoreboard()} />
           </Routes>
         </Router>
-        </Title>
       </Layout>
     </div>
   );
