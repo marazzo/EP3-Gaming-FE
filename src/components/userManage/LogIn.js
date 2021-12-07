@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +50,7 @@ export const LogIn = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <div>
-        <Button type="submit" variant="contained" color="primary">
+        <Button type="submit" component={Link} to="/game" variant="contained" color="primary">
           Log In
         </Button>
       </div>
