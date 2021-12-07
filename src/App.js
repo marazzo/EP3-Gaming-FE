@@ -6,14 +6,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Scoreboard } from "./components/gameState/Scoreboard";
 import { Layout } from "./components/Layout";
 import { Title } from "./components/Title";
-import { useLoginSession } from "./hooks/useLoginSession";
+import { usePlayerNameAPI } from "./hooks/usePlayerNameAPI";
 
 const App = () => {
-  const isLoggedIn = useLoginSession();
+  const [playerName] = usePlayerNameAPI();
 
   return (
     <div>
-      {isLoggedIn ? console.log(isLoggedIn) : console.log("Not logged in")}
+      {playerName ? console.log(playerName) : console.log("Not logged in")}
       <Layout>
         <Title />
         <Router>
