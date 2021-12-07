@@ -33,22 +33,22 @@ export const GameView = () => {
           <HealthBar game={game} />
         </Grid>
         <Grid item xs={6}>
-          2
+          
         </Grid>
         <Grid item xs={12}>
-          3
+          
         </Grid>
         <Grid item xs={4}>
           <Hero />
         </Grid>
         <Grid item xs={4}>
-          5
+          
         </Grid>
         <Grid item xs={4}>
           <Monster />
         </Grid>
         <Grid item xs={12}>
-          7
+          
         </Grid>
       </Grid>
 
