@@ -4,10 +4,12 @@ import { GameView } from "./components/gameState/GameView";
 import { HomePage } from "./components/HomePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Scoreboard } from "./components/gameState/Scoreboard";
+import { Title } from "./components/Title";
 
 const App = () => {
   return (
     <div className="wrapper">
+      <Title />
       <Router>
         <Routes>
           <Route path="/home" element={HomePage()} />

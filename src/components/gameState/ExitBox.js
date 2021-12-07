@@ -6,13 +6,13 @@ import { Grid } from "@material-ui/core";
 export const ExitBox = () => {
 
   return (
-  <Grid container justify="flex-end" alignItems="flex-end">
+  <Grid container justifyContent="flex-end" alignItems="flex-end">
     <IconButton
       component={Link}
       to="/scoreboard"
       size="small"
       position=""
-      style={{ top: 15, right: 15 }}
+      style={{ top: -50, right: 15 }}
       >
       <CancelIcon />
     </IconButton>
