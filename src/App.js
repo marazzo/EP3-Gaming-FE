@@ -10,8 +10,8 @@ import { Title } from "./components/Title";
 const App = () => {
   return (
     <div className="wrapper">
+    <Title />
       <Layout>
-        <Title />
         <Router>
           <Routes>
             <Route path="/" element={HomePage()} />
