@@ -4,10 +4,21 @@ import HealthBar from "../game_screen/HealthBar";
 import Hero from "../game_screen/Hero";
 import Monster from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
+import {Howl} from "howler";  // Howler JS Audio library
+import Punch from "../../audioclips/hit.mp3" 
 import { ExitBox } from "./ExitBox";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
+
+  const punch = new Howl({
+    src: Punch,
+  })
+
+  const handleClick = () => {
+    changeTurn();
+    punch.play();  // 
+  }
 
   const handleKeyPress = (event) => {
     if (event.code === "Space") {
@@ -45,9 +56,12 @@ export const GameView = () => {
       <div>Health: {game.health}</div>
       <div>
         {game.isDead ? (
-          <GameOver gameScore={game.score} />
+          <div>
+            <GameOver gameScore={game.score} />
+
+          </div>
         ) : (
-          <button onClick={changeTurn} onKeyPress={handleKeyPress}>
+          <button onClick={handleClick} onKeyPress={handleKeyPress}>
             Attack
           </button>
         )}
