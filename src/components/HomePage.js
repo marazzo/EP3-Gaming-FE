@@ -3,7 +3,6 @@ import LogIn from "./userManage/LogIn";
 import { useState } from "react";
 import Button from "@material-ui/core/Button";
 
-
 export const HomePage = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false)

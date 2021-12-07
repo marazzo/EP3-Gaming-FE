@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+.hero {
+  max-width: 30%;
+  animation-name: moveCharacter;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.monster {
+  max-width: 40%;
+  animation-name: moveCharacter;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1s;
+  transform: scaleX(-1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.game-bg {
+  background-image: url("./assets/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 80% !important;
+  height: 800px;
+  margin: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes moveCharacter {
   from {
-    transform: rotate(0deg);
+    transform: translateY(0px);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(20px);
   }
+}
+/* SMALL ANIMATION FOR TITLE IF WE WANT IT */
+.title {
+  font-size: 20px;
+  transition-property: font-size;
+  transition-duration: 10s;
+  transition-delay: 1s;
+}
+.title:hover {
+  color: red;
+  transform: rotate(180deg);
+  font-size: 40px;
 }
