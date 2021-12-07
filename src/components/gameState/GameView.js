@@ -4,7 +4,6 @@ import HealthBar from "../game_screen/HealthBar";
 import Hero from "../game_screen/Hero";
 import Monster from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
-import HeroName from "../game_screen/HeroName";
 
 export const GameView = () => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
@@ -27,7 +26,6 @@ export const GameView = () => {
           3
         </Grid>
         <Grid item xs={4}>
-          <HeroName />
           <Hero />
         </Grid>
         <Grid item xs={4} style={{ background: "blue" }}>

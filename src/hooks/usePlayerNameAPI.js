@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const usePlayerNameAPI = () => {
   const[playerName, setPlayerName] = useState();
 
-  const getPlayerName = () => {
+  const getPlayerName = async () => {
     const url = "/user-name";
     const res = await fetch(url, { method: "GET" });
     const json = await res.json();
-
     setPlayerName(json.username);
   }
-  return[playerName, getPlayerName];
+
+  useEffect(()=>{
+    getPlayerName()
+  }, [])
+
+  return[ playerName ];
 }
