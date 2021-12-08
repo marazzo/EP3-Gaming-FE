@@ -4,11 +4,9 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
 import { Title } from "./Title";
-import React from 'react';
+import React from "react";
 
-
-
-export const HomePage = ({loggedIn, setLoggedIn}) => {
+export const HomePage = ({ loggedIn, setLoggedIn }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -50,11 +48,10 @@ export const HomePage = ({loggedIn, setLoggedIn}) => {
           </Button>
         </Grid>
         <Grid>
-          {showLogin && <LogIn />}
+          {showLogin && <LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           {showSignup && <SignUp />}
         </Grid>
       </Grid>
-
     </div>
   );
 };
