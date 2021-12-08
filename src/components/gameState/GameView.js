@@ -6,21 +6,33 @@ import Monster from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
 import {Howl} from "howler";  // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3" 
+import Bonus from "../../audioclips/bonus.wav" 
 import { ExitBox } from "./ExitBox";
 import React from 'react'
 
 export const GameView = () => {
-  const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
+  const [game, changeTurn, changeTurnDoubleDamage] = useGameAPI(); //[gameData, changeTurn]
 
   const punch = new Howl({
     src: Punch,
     volume: 0.8
   })
    
+  const bonus = new Howl({
+    src: Bonus,
+    volume: 0.8
+  })
 
   const handleClick = () => {
+    if (active) {
     changeTurn();
-    punch.play();  // 
+    punch.play(); 
+    }
+    else
+    {
+    changeTurnDoubleDamage();
+    bonus.play(); 
+    }
   }
 
   const handleKeyPress = (event) => {
@@ -28,26 +40,28 @@ export const GameView = () => {
       changeTurn();
       punch.play()
     }
-    else if (seconds == 0)
   };
 
   const [seconds, setSeconds] = React.useState(5);
+  const [active, setActive] = React.useState(true);
 
   React.useEffect(() => {
     if (seconds > 0) {
+      setActive(true)
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else if (seconds == 0) {
       {setSeconds('MONSTER ATTACKS YOU')}
-      'MONSTER ATTACKS YOUfdsafds'
-      setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000)
-      return () => clearTimeout();
+      setActive(false)
+      setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
     }
-  });
+  },);
  
 
   
 
   return (
+  <>
+    <div>{active ? "true" : "false"}</div>
     <div className="game-container">
         <ExitBox />
       <Grid container className="game-bg">
@@ -77,19 +91,21 @@ export const GameView = () => {
       <div>Score: {game.score}</div>
       <div>Health: {game.health}</div>
       <div>
-        {game.isDead ? (
+        { game.isDead ? (
           <div>
             <GameOver gameScore={game.score} />
-
           </div>
         ) : (
           <div>
           <button onClick={handleClick} onKeyPress={handleKeyPress}>
-            Attack
+            Attack1
           </button>
           </div>
         )}
+
       </div>
     </div>
+    </>
   );
+  
 };
