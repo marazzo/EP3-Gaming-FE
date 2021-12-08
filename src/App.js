@@ -15,7 +15,6 @@ const App = () => {
     <div>
       {playerName ? console.log(playerName) : console.log("Not logged in")}
       <Layout>
-        <Title />
         <Router>
           <Routes>
             <Route path="/" element={HomePage()} />
