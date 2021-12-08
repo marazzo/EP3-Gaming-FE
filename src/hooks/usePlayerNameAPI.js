@@ -14,5 +14,5 @@ export const usePlayerNameAPI = () => {
     getPlayerName()
   }, [])
 
-  return[ playerName ];
+  return[ playerName, getPlayerName ];
 }

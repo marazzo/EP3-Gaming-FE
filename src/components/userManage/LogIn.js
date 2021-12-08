@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,14 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const LogIn = () => {
+export const LogIn = ({loggedIn, setLoggedIn}) => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    callAPI(username, password);
+    callAPI(username, password, setLoggedIn);
   };
 
   return (
@@ -48,16 +50,24 @@ export const LogIn = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      { !loggedIn ?
       <div>
         <Button type="submit" variant="contained" color="primary">
           Log In
         </Button>
+      </div> :
+      <div>
+        <h3>You have logged in!</h3>
+        <Button type="submit" component={Link} to="/scoreboard"  variant="contained" color="primary">
+          Continue
+        </Button>
       </div>
+      }
     </form>
   );
 };
 
-const callAPI = (username, password) => {
+const callAPI = (username, password, setLoggedIn) => {
   
   const user = { username: username, password: password };
   const options = {
@@ -73,7 +83,9 @@ const callAPI = (username, password) => {
       return response.json()
     })
     .then((data) => {
-      return data
+      if(data.success === true){
+        setLoggedIn(true)
+      }
     })
     .catch((err) => {
       console.log(err);
