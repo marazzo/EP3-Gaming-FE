@@ -52,7 +52,12 @@ export const LogIn = ({loggedIn, setLoggedIn}) => {
       />
       { !loggedIn ?
       <div>
-        <Button type="submit" variant="contained" color="primary">
+        <Button
+          className="intro-btn"
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
           Log In
         </Button>
       </div> :
@@ -67,22 +72,23 @@ export const LogIn = ({loggedIn, setLoggedIn}) => {
   );
 };
 
+
 const callAPI = (username, password, setLoggedIn) => {
-  
-  const user = { username: username, password: password };
+    const user = { username: username, password: password };
   const options = {
     method: "post",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify(user),
   };
   fetch("/login", options)
     .then((response) => {
-      return response.json()
+      return response.json();
     })
     .then((data) => {
+
       if(data.success === true){
         setLoggedIn(true)
       }

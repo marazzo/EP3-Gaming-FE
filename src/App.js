@@ -16,6 +16,7 @@ const App = () => {
   return (
     <div className="wrapper"> 
       
+
         <Router>
           <Title loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
           <Layout>
