@@ -8,9 +8,16 @@ import { Grid } from "@material-ui/core";
 import { Howl } from "howler"; // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3";
 import { ExitBox } from "./ExitBox";
+import React, {useState} from 'react';
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
+  const [isAttacking, setIsAttacking] = useState(false);
+
+  const toggleImage = () => {
+    setIsAttacking(!isAttacking);
+    setTimeout(() => {setIsAttacking(false)}, 166);
+  }
 
   const punch = new Howl({
     src: Punch,
@@ -19,12 +26,15 @@ export const GameView = ({ loggedIn }) => {
 
   const handleClick = () => {
     changeTurn();
-    punch.play(); //
-  };
+    punch.play();
+    toggleImage();
+  }
 
   const handleKeyPress = (event) => {
     if (event.code === "Space") {
       changeTurn();
+      punch.play();
+      toggleImage();
     }
   };
   return (
@@ -54,8 +64,10 @@ export const GameView = ({ loggedIn }) => {
             <Grid item xs={12}></Grid>
           </Grid>
 
+
           <div>Score: {game.score}</div>
           <div>Health: {game.health}</div>
+
           <div>
             {game.isDead ? (
               <div>
