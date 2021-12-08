@@ -1,3 +1,4 @@
+import React from 'react';
 import { useScoreAPI } from "../../hooks/useScoreAPI";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";

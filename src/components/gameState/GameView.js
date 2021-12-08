@@ -1,24 +1,31 @@
+import React from "react";
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
 import Hero from "../game_screen/Hero";
 import Monster from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
-import {Howl} from "howler";  // Howler JS Audio library
+import { Howl } from "howler"; // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3" 
 import No from "../../audioclips/no.wav" 
 import { ExitBox } from "./ExitBox";
-import React from 'react'
+   
 
-export const GameView = () => {
+export const GameView = ({ loggedIn }) => {
   const [game, changeTurn, changeTurnDoubleDamage] = useGameAPI(); //[gameData, changeTurn]
+  const [isAttacking, setIsAttacking] = useState(false);
+
+  const toggleImage = () => {
+    setIsAttacking(!isAttacking);
+    setTimeout(() => {setIsAttacking(false)}, 166);
+  }
 
   const punch = new Howl({
     src: Punch,
-    volume: 0.8
-  })
-   
-  const no = new Howl({
+    volume: 0.8,
+  });
+  
+    const no = new Howl({
     src: No,
     volume: 0.8
   })
@@ -26,19 +33,22 @@ export const GameView = () => {
   const handleClick = () => {
     if (active) {
     changeTurn();
-    punch.play(); 
+    punch.play();
+    toggleImage();
     }
     else
     {
     changeTurnDoubleDamage();
-    no.play(); 
+    no.play();
+    toggleImage();
     }
   }
 
   const handleKeyPress = (event) => {
     if (event.code === "Space") {
       changeTurn();
-      punch.play()
+      punch.play();
+      toggleImage();
     }
   };
 
@@ -55,56 +65,52 @@ export const GameView = () => {
       setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
     }
   },);
- 
-
-  
 
   return (
-  <>
-    <div>{active ? "true" : "false"}</div>
-    <div className="game-container">
-        <ExitBox />
-      <Grid container className="game-bg">
-        <Grid item xs={6}>
-          <HealthBar game={game} />
-        </Grid>
-        <Grid item xs={6}>
-          
-        </Grid>
-        <Grid item xs={12}>
-          
-        </Grid>
-        <Grid item xs={4}>
-          <Hero />
-        </Grid>
-        <Grid item xs={4}>
-        <h1>{seconds}</h1>
-        </Grid>
-        <Grid item xs={4}>
-          <Monster />
-        </Grid>
-        <Grid item xs={12}>
-    
-        </Grid>
-      </Grid>
+    <>
+      {" "}
+      {loggedIn ? (
+        <Grid
+          className="game-container"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <ExitBox />
 
-      <div>Score: {game.score}</div>
-      <div>Health: {game.health}</div>
-      <div>
-        { game.isDead ? (
-          <div>
-            <GameOver gameScore={game.score} />
-          </div>
-        ) : (
-          <div>
-          <button onClick={handleClick} onKeyPress={handleKeyPress}>
-            Attack1
-          </button>
-          </div>
-        )}
+          <Grid container className="game-bg">
+            <Grid item xs={6}>
+              <HealthBar game={game} />
+            </Grid>
+            <Grid item xs={6}></Grid>
+            <Grid item xs={12}></Grid>
+            <Grid item xs={4}>
+              <Hero isAttacking={isAttacking} />
+            </Grid>
+            <Grid item xs={4}></Grid>
+            <Grid item xs={4}>
+              <Monster />
+            </Grid>
+            <Grid item xs={12}></Grid>
+          </Grid>
 
-      </div>
-    </div>
+          <div>Score: {game.score}</div>
+          <div>Health: {game.health}</div>
+
+          <div>
+            {game.isDead ? (
+              <div>
+                <GameOver gameScore={game.score} />
+              </div>
+            ) : (
+              <button onClick={handleClick} onKeyPress={handleKeyPress}>
+                Attack
+              </button>
+            )}
+          </div>
+        </Grid>
+      ) : (
+        <h1>LOG IN!!!</h1>
+      )}
     </>
   );
   

@@ -1,10 +1,15 @@
 import React from 'react'
-import MonsterSprite from "../../assets/monster.png"
+import monsterArray from '../../assets/monsters/monsterArray';
+import MonsterName from './MonsterName';
+
 
 const Monster = () => {
+  const randomMonster = monsterArray[Math.floor(Math.random()*monsterArray.length)];
+  console.log(randomMonster)
   return (
     <div>
-      <img src={MonsterSprite} alt="monster" className="monster"/>
+      <MonsterName />
+      <img src={randomMonster} alt="monster" className="monster"/>
     </div>
   )
 }

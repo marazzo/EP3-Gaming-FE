@@ -1,43 +1,61 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&display=swap");
+
+* {
   margin: 0px;
+  font-family: "Press Start 2P", cursive;
+  font-family: "Bungee", cursive;
 }
 
-.layout{
-  width: 90vw;
-  height: 90vh;
-  margin-top: 5vh;
-  margin-bottom: 5vh ;
-  border: '1px solid';
+.layout {
+  width: 100%;
+  height: 100vh;
+  border: "1px solid";
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  background-image: url("./assets/bg.png");
+  position: relative;
+  background-image: url("./assets/skyBG.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
   background-position: center;
+}
+
+.custom-nav {
+  background-color: transparent;
+  overflow: auto;
+}
+
+.title-top {
+  font-size: 4rem;
+  text-shadow: 2px 3px white;
+  margin-right: 20px;
+}
+
+.title-name {
+  font-size: 6rem;
+  text-shadow: 2px 3px white;
 }
 
 .game-container {
   width: 100%;
   height: 100%;
-  flex-direction: column;  
+  display: flex;
+  flex-direction: column;
 }
 
 .game-bg {
-  /* background-image: url("./assets/bg.png");
+  background-image: url("./assets/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center; */
-  width: 100% !important;
+  background-position: center;
+  width: 70% !important;
   height: 100%;
-  position: relative;
   padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .hero {
   max-width: 30%;
-  animation-name: moveCharacter;
+  animation-name: moveHero;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
@@ -45,11 +63,10 @@
 
 .monster {
   max-width: 40%;
-  animation-name: moveCharacter;
+  animation-name: moveMonster;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
-  transform: scaleX(-1);
 }
 
 .scoreboard {
@@ -57,11 +74,20 @@
   flex-direction: column;
 }
 
-.scorebtn{
-  margin: 10px
+.scorebtn {
+  margin: 10px;
 }
 
-@keyframes moveCharacter {
+@keyframes moveMonster {
+  from {
+    transform: translateY(0px) scaleX(-1);
+  }
+  to {
+    transform: translateY(20px) scaleX(-1);
+  }
+}
+
+@keyframes moveHero {
   from {
     transform: translateY(0px);
   }
@@ -69,6 +95,7 @@
     transform: translateY(20px);
   }
 }
+
 /* SMALL ANIMATION FOR TITLE IF WE WANT IT */
 .title {
   font-size: 20px;
@@ -80,4 +107,12 @@
   color: red;
   transform: rotate(180deg);
   font-size: 40px;
+}
+
+.intro-btn {
+  padding: 1rem 2rem !important;
+  margin: 1rem 2rem !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  background-color: lightgreen !important;
+  color: black !important;
 }

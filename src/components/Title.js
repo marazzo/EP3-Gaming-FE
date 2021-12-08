@@ -1,10 +1,27 @@
 import { Grid } from "@material-ui/core";
+import React from "react";
+import { LogOut } from "./userManage/LogOut";
+import Sword from "../assets/sword.png";
 
-export const Title = () => {
-
+export const Title = ({ loggedIn, setLoggedIn }) => {
   return (
-      <Grid container justifyContent="center" alignItems="center">
-      <h1>Amazing Title goes here!</h1>
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      style={{ marginBottom: "2rem" }}
+    >
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <h2 className="title-top">Life of</h2>
+        <img src={Sword} alt="hero" style={{ width: "10%" }} />
       </Grid>
-  )
-}
+      <h1 className="title-name">BERNARD</h1>{" "}
+    </Grid>
+  );
+};

@@ -1,12 +1,16 @@
 import React from "react";
-import HeroSprite from "../../assets/hero.png";
+import HeroIdle from "../../assets/hero.png";
+import HeroAttack from "../../assets/heroAttack.png";
 import HeroName from "./HeroName";
 
-const Hero = () => {
+const Hero = ({isAttacking}) => {
+
+  const heroImage = isAttacking? HeroAttack : HeroIdle;
+
   return (
     <div>
       <HeroName />
-      <img src={HeroSprite} alt="hero" className="hero"/>
+      <img src={heroImage} alt="hero" className="hero"/>
     </div>
   );
 };
