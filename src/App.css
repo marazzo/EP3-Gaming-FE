@@ -33,7 +33,7 @@
 
 .hero {
   max-width: 30%;
-  animation-name: moveCharacter;
+  animation-name: moveHero;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
@@ -41,11 +41,11 @@
 
 .monster {
   max-width: 40%;
-  animation-name: moveCharacter;
+  animation-name: moveMonster;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
-  transform: scaleX(-1);
+  
 }
 
 .scoreboard {
@@ -57,7 +57,16 @@
   margin: 10px
 }
 
-@keyframes moveCharacter {
+@keyframes moveMonster {
+  from {
+    transform: translateY(0px) scaleX(-1);
+  }
+  to {
+    transform: translateY(20px) scaleX(-1);
+  }
+}
+
+@keyframes moveHero {
   from {
     transform: translateY(0px);
   }
