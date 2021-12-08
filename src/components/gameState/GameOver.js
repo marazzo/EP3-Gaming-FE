@@ -1,3 +1,4 @@
+import React from 'react';
 import { useScoreAPI } from "../../hooks/useScoreAPI";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
@@ -9,6 +10,7 @@ export const GameOver = ({ gameScore }) => {
 
   const gameover = new Howl({
     src: GameEndTheme,
+    volume: 0.2
   })
   gameover.play() //game over mp3
 
