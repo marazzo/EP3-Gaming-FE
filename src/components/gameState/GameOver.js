@@ -9,6 +9,7 @@ export const GameOver = ({ gameScore }) => {
 
   const gameover = new Howl({
     src: GameEndTheme,
+    volume: 0.2
   })
   gameover.play() //game over mp3
 

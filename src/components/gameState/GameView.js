@@ -13,6 +13,7 @@ export const GameView = () => {
 
   const punch = new Howl({
     src: Punch,
+    volume: 0.8
   })
 
   const handleClick = () => {
