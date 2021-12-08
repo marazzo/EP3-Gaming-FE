@@ -28,6 +28,7 @@ export const GameView = () => {
       changeTurn();
       punch.play()
     }
+    else if (seconds == 0)
   };
 
   const [seconds, setSeconds] = React.useState(5);
@@ -37,12 +38,14 @@ export const GameView = () => {
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else if (seconds == 0) {
       {setSeconds('MONSTER ATTACKS YOU')}
-      setTimeout(() => {setSeconds(5)}, 1000)
+      'MONSTER ATTACKS YOUfdsafds'
+      setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000)
       return () => clearTimeout();
     }
   });
  
 
+  
 
   return (
     <div className="game-container">
