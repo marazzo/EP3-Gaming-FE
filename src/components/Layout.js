@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Grid } from "@material-ui/core";
+import { Navbar } from "./Navbar";
 
-export function Layout({ children }) {
+export function Layout({ children, loggedIn, setLoggedIn }) {
   return (
     <div>
+      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Grid container className="layout">
-        <Grid item xs={12} className="layout">
-          {children}
-        </Grid>
+        {children}
       </Grid>
     </div>
   );

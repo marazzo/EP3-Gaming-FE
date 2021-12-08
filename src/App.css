@@ -13,11 +13,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: relative;
   background-image: url("./assets/skyBG.jpg");
   background-repeat: no-repeat;
   background-position: center;
+}
 
+.custom-nav {
+  background-color: transparent;
+  overflow: auto;
 }
 
 .title-top {
@@ -63,7 +67,6 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
-  
 }
 
 .scoreboard {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
@@ -14,9 +14,8 @@ export const GameView = ({ loggedIn }) => {
 
   const punch = new Howl({
     src: Punch,
-    volume: 0.8;
-  })
-
+    volume: 0.8,
+  });
 
   const handleClick = () => {
     changeTurn();
@@ -28,48 +27,50 @@ export const GameView = ({ loggedIn }) => {
       changeTurn();
     }
   };
-  return (   <>   {loggedIn ?
+  return (
+    <>
+      {" "}
+      {loggedIn ? (
+        <Grid
+          className="game-container"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <ExitBox />
 
+          <Grid container className="game-bg">
+            <Grid item xs={6}>
+              <HealthBar game={game} />
+            </Grid>
+            <Grid item xs={6}></Grid>
+            <Grid item xs={12}></Grid>
+            <Grid item xs={4}>
+              <Hero />
+            </Grid>
+            <Grid item xs={4}></Grid>
+            <Grid item xs={4}>
+              <Monster />
+            </Grid>
+            <Grid item xs={12}></Grid>
+          </Grid>
 
-    <Grid
-      className="game-container"
-      justifyContent="center"
-      alignItems="center"
-    >
-    
-      <ExitBox />
-
-      <Grid container className="game-bg">
-        <Grid item xs={6}>
-          <HealthBar game={game} />
-        </Grid>
-        <Grid item xs={6}></Grid>
-        <Grid item xs={12}></Grid>
-        <Grid item xs={4}>
-          <Hero />
-        </Grid>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={4}>
-          <Monster />
-        </Grid>
-        <Grid item xs={12}></Grid>
-      </Grid>
-
-      <div>Score: {game.score}</div>
-      <div>Health: {game.health}</div>
-      <div>
-        {game.isDead ? (
+          <div>Score: {game.score}</div>
+          <div>Health: {game.health}</div>
           <div>
-            <GameOver gameScore={game.score} />
+            {game.isDead ? (
+              <div>
+                <GameOver gameScore={game.score} />
+              </div>
+            ) : (
+              <button onClick={handleClick} onKeyPress={handleKeyPress}>
+                Attack
+              </button>
+            )}
           </div>
-        ) : (
-          <button onClick={handleClick} onKeyPress={handleKeyPress}>
-            Attack
-          </button>
-        )}
-      </div>
-    </Grid> :
-    <h1>LOG IN!!!</h1>}
+        </Grid>
+      ) : (
+        <h1>LOG IN!!!</h1>
+      )}
     </>
   );
 };
