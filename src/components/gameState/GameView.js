@@ -6,7 +6,7 @@ import Monster from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
 import {Howl} from "howler";  // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3" 
-import Bonus from "../../audioclips/bonus.wav" 
+import No from "../../audioclips/no.wav" 
 import { ExitBox } from "./ExitBox";
 import React from 'react'
 
@@ -18,8 +18,8 @@ export const GameView = () => {
     volume: 0.8
   })
    
-  const bonus = new Howl({
-    src: Bonus,
+  const no = new Howl({
+    src: No,
     volume: 0.8
   })
 
@@ -31,7 +31,7 @@ export const GameView = () => {
     else
     {
     changeTurnDoubleDamage();
-    bonus.play(); 
+    no.play(); 
     }
   }
 
