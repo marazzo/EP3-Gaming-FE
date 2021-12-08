@@ -2,6 +2,7 @@ import SignUp from "./userManage/SignUp";
 import LogIn from "./userManage/LogIn";
 import { useState } from "react";
 import Button from "@material-ui/core/Button";
+import React from 'react';
 
 
 export const HomePage = () => {

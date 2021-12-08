@@ -1,3 +1,4 @@
+import React from 'react';
 import { useScoreboardAPI } from "../../hooks/useScoreboardAPI";
 import Score from "./Score";
 import Button from "@material-ui/core/Button";

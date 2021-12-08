@@ -1,3 +1,4 @@
+import React from 'react';
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";

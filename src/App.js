@@ -8,6 +8,7 @@ import { Layout } from "./components/Layout";
 import { Title } from "./components/Title";
 import { ProtectedRoute } from "./components/ProtectedRoutes";
 import { useState } from "react";
+import React from 'react';
 
 const App = () => {
 

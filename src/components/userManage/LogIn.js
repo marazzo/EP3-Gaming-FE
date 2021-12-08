@@ -26,10 +26,11 @@ export const LogIn = () => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    callAPI(username, password);
+    callAPI(username, password, setSuccess);
   };
 
   return (
@@ -49,16 +50,23 @@ export const LogIn = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      { !success ?
       <div>
-        <Button type="submit" component={Link} to="/game" variant="contained" color="primary">
+        <Button type="submit" variant="contained" color="primary">
           Log In
         </Button>
+      </div> :
+      <div>
+        <Button type="submit" component={Link} to="/scoreboard"  variant="contained" color="primary">
+          Continue
+        </Button>
       </div>
+      }
     </form>
   );
 };
 
-const callAPI = (username, password) => {
+const callAPI = (username, password, setSuccess) => {
   
   const user = { username: username, password: password };
   const options = {
@@ -74,7 +82,9 @@ const callAPI = (username, password) => {
       return response.json()
     })
     .then((data) => {
-      return data
+      if(data.success === true){
+        setSuccess(true)
+      }
     })
     .catch((err) => {
       console.log(err);
