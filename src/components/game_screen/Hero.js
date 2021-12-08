@@ -6,7 +6,6 @@ import HeroName from "./HeroName";
 const Hero = ({isAttacking}) => {
 
   const heroImage = isAttacking? HeroAttack : HeroIdle;
-  console.log(heroImage)
 
   return (
     <div>

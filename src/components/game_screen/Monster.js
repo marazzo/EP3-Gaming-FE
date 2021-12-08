@@ -5,7 +5,7 @@ import MonsterName from './MonsterName';
 
 const Monster = () => {
   const randomMonster = monsterArray[Math.floor(Math.random()*monsterArray.length)];
-  console.log(randomMonster)
+  
   return (
     <div>
       <MonsterName />
