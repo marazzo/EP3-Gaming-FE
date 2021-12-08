@@ -1,4 +1,6 @@
-import { Button, Link } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
+
 import React, { useEffect, useState } from 'react';
 
 const callApi = async () => {
@@ -25,7 +27,7 @@ export const LogOut = ({loggedIn, setLoggedIn}) => {
 
   return (
     <div>
-    { loggedIn ? <Button type="submit" onClick={handleClick}>Log Out</Button> : <Button component={Link} to="/scoreboard" >Log in</Button>
+    { loggedIn ? <Button type="submit" onClick={handleClick}>Log Out</Button> : <Button component={Link} to="/" >Log in</Button>
     }
     </div>
   )

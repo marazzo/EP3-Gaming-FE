@@ -57,6 +57,7 @@ export const LogIn = ({loggedIn, setLoggedIn}) => {
         </Button>
       </div> :
       <div>
+        <h3>You have logged in!</h3>
         <Button type="submit" component={Link} to="/scoreboard"  variant="contained" color="primary">
           Continue
         </Button>
