@@ -9,7 +9,7 @@ import {Howl} from "howler";  // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3" 
 import { ExitBox } from "./ExitBox";
 
-export const GameView = () => {
+export const GameView = ({ loggedIn }) => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
 
   const punch = new Howl({
@@ -27,7 +27,9 @@ export const GameView = () => {
     }
   };
   return (
-    <div className="game-container">
+    <>
+      {loggedIn ?
+      <div className="game-container">
         <ExitBox />
       <Grid container className="game-bg">
         <Grid item xs={6}>
@@ -67,6 +69,8 @@ export const GameView = () => {
           </button>
         )}
       </div>
-    </div>
+    </div> :
+    <h1>LOG IN!!!</h1>}
+    </>
   );
 };

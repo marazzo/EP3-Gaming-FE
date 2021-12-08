@@ -21,7 +21,7 @@ const App = () => {
           <Layout>
           <Routes>
             <Route path="/" element={<HomePage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-            <Route path="/game" element={<GameView/>} />
+            <Route path="/game" element={<GameView loggedIn={loggedIn}/>} />
             <Route path="/scoreboard" element={<Scoreboard/>} />
           </Routes>
           </Layout>
