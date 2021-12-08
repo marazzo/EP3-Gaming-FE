@@ -4,8 +4,11 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
 import { Title } from "./Title";
+import React from 'react';
 
-export const HomePage = () => {
+
+
+export const HomePage = ({loggedIn, setLoggedIn}) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -51,6 +54,7 @@ export const HomePage = () => {
           {showSignup && <SignUp />}
         </Grid>
       </Grid>
+
     </div>
   );
 };

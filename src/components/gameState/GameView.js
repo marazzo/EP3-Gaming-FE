@@ -1,3 +1,4 @@
+import React from 'react';
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
@@ -8,12 +9,14 @@ import { Howl } from "howler"; // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3";
 import { ExitBox } from "./ExitBox";
 
-export const GameView = () => {
+export const GameView = ({ loggedIn }) => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
 
   const punch = new Howl({
     src: Punch,
-  });
+    volume: 0.8;
+  })
+
 
   const handleClick = () => {
     changeTurn();
@@ -25,13 +28,17 @@ export const GameView = () => {
       changeTurn();
     }
   };
-  return (
+  return (   <>   {loggedIn ?
+
+
     <Grid
       className="game-container"
       justifyContent="center"
       alignItems="center"
     >
+    
       <ExitBox />
+
       <Grid container className="game-bg">
         <Grid item xs={6}>
           <HealthBar game={game} />
@@ -61,6 +68,8 @@ export const GameView = () => {
           </button>
         )}
       </div>
-    </Grid>
+    </Grid> :
+    <h1>LOG IN!!!</h1>}
+    </>
   );
 };
