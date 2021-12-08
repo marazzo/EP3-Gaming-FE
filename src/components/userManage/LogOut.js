@@ -18,8 +18,6 @@ const callApi = async () => {
 };
 
 export const LogOut = ({ loggedIn, setLoggedIn }) => {
-  console.log(loggedIn);
-
   const handleClick = () => {
     callApi();
     setLoggedIn(false);

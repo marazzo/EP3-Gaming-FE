@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
@@ -31,17 +31,17 @@ export const GameView = ({ loggedIn }) => {
   })
 
   const handleClick = () => {
-    if (active) {
+    // if (active) {
     changeTurn();
     punch.play();
     toggleImage();
-    }
-    else
-    {
-    changeTurnDoubleDamage();
-    no.play();
-    toggleImage();
-    }
+    // }
+  //   else
+  //   {
+  //   changeTurnDoubleDamage();
+  //   no.play();
+  //   toggleImage();
+  //   }
   }
 
   const handleKeyPress = (event) => {
@@ -52,19 +52,19 @@ export const GameView = ({ loggedIn }) => {
     }
   };
 
-  const [seconds, setSeconds] = React.useState(5);
-  const [active, setActive] = React.useState(true);
+  // const [seconds, setSeconds] = useState(5);
+  // const [active, setActive] = useState(true);
 
-  React.useEffect(() => {
-    if (seconds > 0) {
-      setActive(true)
-      setTimeout(() => setSeconds(seconds - 1), 1000);
-    } else if (seconds == 0) {
-      {setSeconds('MONSTER ATTACKS YOU')}
-      setActive(false)
-      setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
-    }
-  },);
+  // useEffect(() => {
+  //   if (seconds > 0) {
+  //     setActive(true)
+  //     setTimeout(() => setSeconds(seconds - 1), 1000);
+  //   } else if (seconds === 0) {
+  //     setSeconds('MONSTER ATTACKS YOU')
+  //     setActive(false)
+  //     setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
+  //   }
+  // },);
 
   return (
     <>
