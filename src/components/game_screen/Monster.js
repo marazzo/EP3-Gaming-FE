@@ -14,4 +14,4 @@ const Monster = () => {
   )
 }
 
-export default Monster;
+export const MemoMonster = React.memo(Monster)
