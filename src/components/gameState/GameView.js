@@ -14,6 +14,7 @@ export const GameView = ({ loggedIn }) => {
 
   const punch = new Howl({
     src: Punch,
+    volume: 0.8
   })
 
   const handleClick = () => {
