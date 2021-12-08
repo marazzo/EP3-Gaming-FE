@@ -1,7 +1,5 @@
-import { Link } from "@material-ui/core";
-import React from 'react';
-import { HomePage } from "../HomePage";
-
+import { Button, Link } from "@material-ui/core";
+import React, { useEffect, useState } from 'react';
 
 const callApi = async () => {
     const url = '/logout';
@@ -17,10 +15,18 @@ const callApi = async () => {
     console.log(response)
 }
 
-export const LogOut = () => {
+export const LogOut = ({loggedIn, setLoggedIn}) => {
+  console.log(loggedIn)
+
+  const handleClick = () => {
+    callApi();
+    setLoggedIn(false)
+  }
 
   return (
-    <Link to='/' element={<HomePage />} onClick={callApi}>Log Out</Link>
-
+    <div>
+    { loggedIn ? <Button type="submit" onClick={handleClick}>Log Out</Button> : <Button component={Link} to="/scoreboard" >Log in</Button>
+    }
+    </div>
   )
 }

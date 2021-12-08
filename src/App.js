@@ -12,13 +12,15 @@ import React from 'react';
 
 const App = () => {
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className="wrapper">
-    <Title />
+    <Title loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <Layout>
         <Router>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
             <Route path="/game" element={<GameView/>} />
             <Route path="/scoreboard" element={<Scoreboard/>} />
             {/* <ProtectedRoute path="/game" element={GameView} isAuth={isAuth} /> */}

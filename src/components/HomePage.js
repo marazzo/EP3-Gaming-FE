@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import React from 'react';
 
 
-export const HomePage = () => {
+export const HomePage = ({loggedIn, setLoggedIn}) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false)
 
@@ -25,7 +25,7 @@ export const HomePage = () => {
 
       <Button onClick={logIn} variant="contained" color="primary">Log In</Button>
       <Button onClick={signUp} variant="contained" color="primary">Sign Up</Button>
-      {showLogin && <LogIn /> }
+      {showLogin && <LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> }
       {showSignup && <SignUp /> }
 
     </div>

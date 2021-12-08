@@ -22,15 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const LogIn = () => {
+export const LogIn = ({loggedIn, setLoggedIn}) => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [success, setSuccess] = useState(false)
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    callAPI(username, password, setSuccess);
+    callAPI(username, password, setLoggedIn);
   };
 
   return (
@@ -50,7 +50,7 @@ export const LogIn = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      { !success ?
+      { !loggedIn ?
       <div>
         <Button type="submit" variant="contained" color="primary">
           Log In
@@ -66,7 +66,7 @@ export const LogIn = () => {
   );
 };
 
-const callAPI = (username, password, setSuccess) => {
+const callAPI = (username, password, setLoggedIn) => {
   
   const user = { username: username, password: password };
   const options = {
@@ -83,7 +83,7 @@ const callAPI = (username, password, setSuccess) => {
     })
     .then((data) => {
       if(data.success === true){
-        setSuccess(true)
+        setLoggedIn(true)
       }
     })
     .catch((err) => {
