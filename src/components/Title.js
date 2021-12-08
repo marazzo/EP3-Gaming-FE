@@ -1,6 +1,5 @@
 import { Grid } from "@material-ui/core";
 import React from "react";
-import { LogOut } from "./userManage/LogOut";
 import Sword from "../assets/sword.png";
 
 export const Title = ({ loggedIn, setLoggedIn }) => {

@@ -1,4 +1,3 @@
-import React from "react";
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
@@ -8,7 +7,7 @@ import { Grid } from "@material-ui/core";
 import { Howl } from "howler"; // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3";
 import { ExitBox } from "./ExitBox";
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn] = useGameAPI(); //[gameData, changeTurn]
@@ -16,8 +15,10 @@ export const GameView = ({ loggedIn }) => {
 
   const toggleImage = () => {
     setIsAttacking(!isAttacking);
-    setTimeout(() => {setIsAttacking(false)}, 166);
-  }
+    setTimeout(() => {
+      setIsAttacking(false);
+    }, 166);
+  };
 
   const punch = new Howl({
     src: Punch,
@@ -28,7 +29,7 @@ export const GameView = ({ loggedIn }) => {
     changeTurn();
     punch.play();
     toggleImage();
-  }
+  };
 
   const handleKeyPress = (event) => {
     if (event.code === "Space") {
@@ -63,7 +64,6 @@ export const GameView = ({ loggedIn }) => {
             </Grid>
             <Grid item xs={12}></Grid>
           </Grid>
-
 
           <div>Score: {game.score}</div>
           <div>Health: {game.health}</div>
