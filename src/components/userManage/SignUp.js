@@ -21,14 +21,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = () => {
+const SignUp = ({ setDisplay }) => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    callAPI(username, password);
+    callAPI(username, password, setDisplay);
   };
 
   return (
@@ -57,7 +57,7 @@ const SignUp = () => {
   );
 };
 
-const callAPI = (username, password) => {
+const callAPI = (username, password, setDisplay) => {
   const user = { username: username, password: password };
   const options = {
     method: "post",
@@ -71,7 +71,7 @@ const callAPI = (username, password) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      setDisplay(data.message);
     })
     .catch((err) => {
       console.log(err);

@@ -12,6 +12,7 @@ import Bernard from "../audioclips/bernard.mp3"
 export const HomePage = ({ loggedIn, setLoggedIn, playing, setPlaying }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+  const [display, setDisplay] = useState("")
 
   const logIn = () => {
     setShowLogin(true);
@@ -65,8 +66,8 @@ export const HomePage = ({ loggedIn, setLoggedIn, playing, setPlaying }) => {
           </Button>
         </Grid>
         <Grid>
-          {showLogin && <LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
-          {showSignup && <SignUp />}
+          {showLogin && <LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} setDisplay={setDisplay} />}
+          {showSignup && <SignUp setDisplay={setDisplay} />}
         </Grid>
       </Grid>
     </div>
