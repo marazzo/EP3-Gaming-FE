@@ -5,7 +5,7 @@ import monster3a from './monster3a.png'
 const monsterAttackArray = [
   monster1a,
   monster2a,
-  monster3a,
+  monster3a
 ];
 
 export default monsterAttackArray;

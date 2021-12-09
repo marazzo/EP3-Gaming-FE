@@ -5,7 +5,7 @@ import monster3 from './monster3.png'
 const monsterArray = [
   monster1,
   monster2,
-  monster3,
+  monster3
 ];
 
 export default monsterArray;
