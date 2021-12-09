@@ -48,7 +48,7 @@
 
 .game-container {
   width: 100%;
-  height: 100%;
+  height: 95%;
   display: flex;
   flex-direction: column;
 }
@@ -73,7 +73,6 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
-  margin-top: 40px;
 }
 
 .hero-box {
@@ -97,7 +96,7 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
 }
 
 .scoreboard {
@@ -195,7 +194,7 @@
 }
 
 .stats-text {
-  font-size: 1.5em;
+  font-size: 1em;
   margin: 2px 0;
   text-shadow: 1px 2px white;
 }
@@ -218,9 +217,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3em;
+  padding: 1em 3em;
   border: 3px solid black;
-  border-radius: 10%;
+  border-radius: 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background: rgba(255, 255, 255, 0.443);
 }
@@ -273,4 +272,12 @@ progress::-webkit-progress-value {
   background-color: greenyellow;
   border-radius: 7px;
   /* box-shadow: 1px 1px 5px 3px black; */
+}
+
+.dont {
+  margin-top: 4em;
+  font-size: 1em;
+  text-align: center;
+  color: #bc483c;
+  text-shadow: 2px 3px black;
 }
