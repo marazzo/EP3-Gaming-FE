@@ -3,13 +3,12 @@ import { useGameAPI } from "../../hooks/useGameAPI";
 import { GameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
 import Hero from "../game_screen/Hero";
-import Monster from "../game_screen/Monster";
+import { MemoMonster } from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
 import { Howl } from "howler"; // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3" 
 import No from "../../audioclips/no.wav" 
 import { ExitBox } from "./ExitBox";
-   
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn, changeTurnDoubleDamage] = useGameAPI(); //[gameData, changeTurn]
@@ -25,7 +24,7 @@ export const GameView = ({ loggedIn }) => {
     volume: 0.8,
   });
   
-    const no = new Howl({
+  const no = new Howl({
     src: No,
     volume: 0.8
   })
@@ -33,8 +32,11 @@ export const GameView = ({ loggedIn }) => {
   const handleClick = () => {
     // if (active) {
     changeTurn();
-    punch.play();
-    toggleImage();
+
+    punch.play(); 
+     toggleImage();
+  };
+  
     // }
   //   else
   //   {
@@ -44,13 +46,13 @@ export const GameView = ({ loggedIn }) => {
   //   }
   }
 
-  const handleKeyPress = (event) => {
-    if (event.code === "Space") {
-      changeTurn();
-      punch.play();
-      toggleImage();
-    }
-  };
+  // const handleKeyPress = (event) => {
+  //   if (event.code === "Space") {
+  //     changeTurn();
+  //     punch.play();
+  //     toggleImage();
+  //   }
+  // };
 
   // const [seconds, setSeconds] = useState(5);
   // const [active, setActive] = useState(true);
@@ -65,6 +67,7 @@ export const GameView = ({ loggedIn }) => {
   //     setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
   //   }
   // },);
+
 
   return (
     <>
@@ -100,13 +103,13 @@ export const GameView = ({ loggedIn }) => {
               <GameOver gameScore={game.score} />
             </div>
           ) : (
-            <button onClick={handleClick} onKeyPress={handleKeyPress}>
+            <button onClick={handleClick}>
               Attack
             </button>
           )}
         </div>
       </Grid>
+
     </>
   );
-  
 };

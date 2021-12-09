@@ -22,11 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const LogIn = ({loggedIn, setLoggedIn}) => {
+export const LogIn = ({ loggedIn, setLoggedIn }) => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,31 +49,37 @@ export const LogIn = ({loggedIn, setLoggedIn}) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      { !loggedIn ?
-      <div>
-        <Button
-          className="intro-btn"
-          type="submit"
-          variant="contained"
-          color="primary"
-        >
-          Log In
-        </Button>
-      </div> :
-      <div>
-        <h3>You have logged in!</h3>
-        <Button type="submit" component={Link} to="/scoreboard"  variant="contained" color="primary">
-          Continue
-        </Button>
-      </div>
-      }
+      {!loggedIn ? (
+        <div>
+          <Button
+            className="intro-btn"
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Log In
+          </Button>
+        </div>
+      ) : (
+        <div>
+          <h3>You have logged in!</h3>
+          <Button
+            className="intro-btn"
+            type="submit"
+            component={Link}
+            to="/scoreboard"
+            variant="contained"
+          >
+            Continue
+          </Button>
+        </div>
+      )}
     </form>
   );
 };
 
-
 const callAPI = (username, password, setLoggedIn) => {
-    const user = { username: username, password: password };
+  const user = { username: username, password: password };
   const options = {
     method: "post",
     headers: {
@@ -88,9 +93,8 @@ const callAPI = (username, password, setLoggedIn) => {
       return response.json();
     })
     .then((data) => {
-
-      if(data.success === true){
-        setLoggedIn(true)
+      if (data.success === true) {
+        setLoggedIn(true);
       }
     })
     .catch((err) => {

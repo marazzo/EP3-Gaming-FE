@@ -61,6 +61,11 @@
   animation-duration: 1s;
 }
 
+.hero-box {
+  display: flex;
+  justify-content: center;
+}
+
 .monster {
   max-width: 40%;
   animation-name: moveMonster;
@@ -74,8 +79,31 @@
   flex-direction: column;
 }
 
-.scorebtn {
-  margin: 10px;
+.score {
+  margin: 0.1rem;
+  padding: 10px 5rem;
+  border: 3px solid black;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.443);
+}
+
+.score-name {
+  display: flex;
+  justify-content: center;
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.high-score {
+  margin: 30px 0;
+  font-size: 60px;
+  text-shadow: 2px 3px white;
 }
 
 @keyframes moveMonster {
@@ -115,4 +143,18 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
   background-color: lightgreen !important;
   color: black !important;
+}
+
+.alternative-btn {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  background-color: lightcoral !important;
+  color: black !important;
+  margin: 0 20px !important;
+  padding: 1rem 2rem !important;
+}
+
+.btn-container {
+  margin-top: 2rem;
+  display: flex !important;
+  justify-content: center !important;
 }
