@@ -7,6 +7,11 @@ import { Grid } from "@material-ui/core";
 
 export const Scoreboard = () => {
   const topTen = useScoreboardAPI();
+
+  const handleClick = () => {
+    callApi();
+  };
+
   return (
     <Grid className="scoreboard">
       <div className="scores">
@@ -33,7 +38,8 @@ export const Scoreboard = () => {
         <Button
           className="alternative-btn"
           component={Link}
-          to="/home"
+          to="/"
+          onClick={handleClick}
           variant="contained"
           color="primary"
         >
@@ -42,4 +48,19 @@ export const Scoreboard = () => {
       </Grid>
     </Grid>
   );
+};
+
+
+const callApi = async () => {
+  const url = "/logout";
+  const options = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
+  const res = await fetch(url, options);
+  const response = res.status;
+  console.log(response);
 };
