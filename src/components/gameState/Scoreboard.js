@@ -24,7 +24,7 @@ export const Scoreboard = () => {
           />
         ))}
       </div>
-      <Grid direction="row" className="btn-container">
+      <Grid container direction="row" className="btn-container">
         <Button
           className="alternative-btn"
           component={Link}
@@ -49,7 +49,6 @@ export const Scoreboard = () => {
     </Grid>
   );
 };
-
 
 const callApi = async () => {
   const url = "/logout";
