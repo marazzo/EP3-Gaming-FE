@@ -74,7 +74,7 @@ export const GameView = ({ loggedIn }) => {
   React.useEffect(() => {
     if (game.isDead || gametimer === 0) {
       {setGameTimer(-1)}
-      {setSeconds(-1)}  
+      {setSeconds("")}  
     }
       else if (gametimer > 0) {
       setTimeout(() => setGameTimer(gametimer - 1), 1000);
