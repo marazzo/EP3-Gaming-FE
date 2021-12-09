@@ -10,8 +10,7 @@ const GameOver = ({ gameScore }) => {
 
   const gameover = new Howl({
     src: GameEndTheme,
-
-    volume: 0.1,
+    volume: 0.3,
   });
 
   gameover.play()
