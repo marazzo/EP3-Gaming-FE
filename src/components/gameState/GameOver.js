@@ -11,11 +11,12 @@ export const GameOver = ({ gameScore }) => {
 
   const gameover = new Howl({
     src: GameEndTheme,
-    volume: 0.2,
+
+    volume: 0.1,
   });
 
-  gameover.play();
-
+  gameover.play()
+  
   return (
     <div className="go-card">
       <h1>Game Over</h1>
