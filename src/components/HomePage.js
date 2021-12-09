@@ -4,7 +4,7 @@ import { useState } from "react";
 import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
 import { Title } from "./Title";
-import React from "react";
+import { useEffect } from "react";
 import { Howl } from "howler"; // Howler JS Audio library
 import Bernard from "../audioclips/bernard.mp3"
 
@@ -29,12 +29,12 @@ export const HomePage = ({ loggedIn, setLoggedIn, playing, setPlaying }) => {
     loop: true
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!playing) {
       bernard.play()
       setPlaying(true)
     }
-  }, [bernard, playing, setPlaying]);
+  }, );
 
 
   return (
