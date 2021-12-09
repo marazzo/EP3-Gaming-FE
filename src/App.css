@@ -9,7 +9,6 @@
 .layout {
   width: 100%;
   height: 100vh;
-  border: "1px solid";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +27,18 @@
   font-size: 4rem;
   text-shadow: 2px 3px white;
   margin-right: 20px;
+}
+
+.character-name {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px white;
+  margin-right: 2em;
+}
+
+.monster-name {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px white;
+  margin-left: 2em;
 }
 
 .title-name {
@@ -50,28 +61,43 @@
   width: 70% !important;
   height: 100%;
   padding: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  border: solid 10px black;
+  border-radius: 5%;
+  box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .hero {
-  max-width: 30%;
+  max-width: 40%;
   animation-name: moveHero;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
+  margin-top: 40px;
 }
 
 .hero-box {
   display: flex;
+  margin-top: 3em;
   justify-content: center;
+  flex-direction: column;
+  align-items: end;
+}
+
+.monster-box {
+  display: flex;
+  margin-top: 3em;
+  flex-direction: column;
+  align-items: start;
 }
 
 .monster {
-  max-width: 40%;
+  max-width: 60%;
   animation-name: moveMonster;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
+  margin-bottom: 80px;
 }
 
 .scoreboard {
@@ -132,7 +158,7 @@
   transition-delay: 1s;
 }
 .title:hover {
-  color: red;
+  color: #bc483c;
   transform: rotate(180deg);
   font-size: 40px;
 }
@@ -157,4 +183,65 @@
   margin-top: 2rem;
   display: flex !important;
   justify-content: center !important;
+}
+progress {
+  margin-top: 2em;
+  border-radius: 7px;
+  width: 80%;
+  height: 22px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+progress::-webkit-progress-bar {
+  background-color: #bc483c;
+  border-radius: 7px;
+}
+progress::-webkit-progress-value {
+  background-color: greenyellow;
+  border-radius: 7px;
+  box-shadow: 1px 1px 5px 3px black;
+}
+
+.progress-box {
+  display: flex;
+  justify-content: center;
+}
+
+.stats-box {
+  margin-top: 2em;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stats-text {
+  font-size: 1.5em;
+  margin: 2px 0;
+  text-shadow: 1px 2px white;
+}
+
+.attack {
+  display: flex;
+  justify-content: center;
+}
+
+.attack button {
+  padding: 2rem 3rem !important;
+  margin: 1rem 2rem !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  background-color: #bc483c !important;
+  color: white !important;
+  font-size: 1.5em;
+}
+
+.go-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  border: 3px solid black;
+  border-radius: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: rgba(255, 255, 255, 0.443);
 }

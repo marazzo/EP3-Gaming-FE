@@ -4,7 +4,7 @@ import React from "react";
 const HeroName = () => {
   const [playerName] = usePlayerNameAPI();
 
-  return <div>{playerName}</div>;
+  return <div className="character-name ">{playerName}</div>;
 };
 
 export default HeroName;
