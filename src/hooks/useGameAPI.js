@@ -27,7 +27,15 @@ export const useGameAPI = () => {
     setGameData(json);
   };
 
+  const killPlayer = async () => {
+    const url = "/kill-player";
+    const res = await fetch(url, { method: "GET" });
+    const json = await res.json();
+
+    setGameData(json);
+  };
+
   useEffect(() => startGame(), []);
 
-  return [gameData, changeTurn, changeTurnDoubleDamage];
+  return [gameData, changeTurn, changeTurnDoubleDamage, killPlayer];
 };
