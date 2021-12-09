@@ -7,9 +7,8 @@ import { MemoMonster } from "../game_screen/Monster";
 import { Grid } from "@material-ui/core";
 import { Howl } from "howler"; // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3" 
-// import No from "../../audioclips/no.wav" 
+import No from "../../audioclips/no.wav" 
 import { ExitBox } from "./ExitBox";
-   
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn, changeTurnDoubleDamage] = useGameAPI(); //[gameData, changeTurn]
@@ -25,16 +24,19 @@ export const GameView = ({ loggedIn }) => {
     volume: 0.8,
   });
   
-  // const no = new Howl({
-  //   src: No,
-  //   volume: 0.8
-  // })
+  const no = new Howl({
+    src: No,
+    volume: 0.8
+  })
 
   const handleClick = () => {
     // if (active) {
     changeTurn();
-    punch.play();
-    toggleImage();
+
+    punch.play(); 
+     toggleImage();
+  };
+  
     // }
   //   else
   //   {
@@ -66,6 +68,7 @@ export const GameView = ({ loggedIn }) => {
   //   }
   // },);
 
+
   return (
     <>
       {" "}
@@ -95,7 +98,6 @@ export const GameView = ({ loggedIn }) => {
 
           <div>Score: {game.score}</div>
           <div>Health: {game.health}</div>
-
           <div>
             {game.isDead ? (
               <div>
