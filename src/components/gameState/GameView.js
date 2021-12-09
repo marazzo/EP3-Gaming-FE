@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect }from "react";
 import { useGameAPI } from "../../hooks/useGameAPI";
-import { GameOver } from "./GameOver";
+import { MemoGameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
 import Hero from "../game_screen/Hero";
 import { MemoMonster } from "../game_screen/Monster";
@@ -10,11 +10,13 @@ import Punch from "../../audioclips/hit.mp3";
 import No from "../../audioclips/no.wav";
 import { ExitBox } from "./ExitBox";
 import Button from "@material-ui/core/Button";
-import { SliderValueLabel } from "@mui/material";
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn, changeTurnDoubleDamage, killPlayer] = useGameAPI(); //[gameData, changeTurn]
-  const [isAttacking, setIsAttacking] = React.useState(false);
+  const [isAttacking, setIsAttacking] = useState(false);
+  const [seconds, setSeconds] = useState(3);
+  const [active, setActive] = useState(true);
+  const [gametimer, setGameTimer] = useState(15);
 
   const toggleImage = () => {
     setIsAttacking(!isAttacking);
@@ -46,43 +48,30 @@ export const GameView = ({ loggedIn }) => {
     }
   };
 
-  const [seconds, setSeconds] = React.useState(3);
-  const [active, setActive] = React.useState(true);
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (game.isDead || gametimer === 0) {
-      {
-        setSeconds(-1);
-      }
-      setActive(true);
-    } else if (seconds > 0) {
-      setActive(true);
+      setSeconds(-1) 
+      setActive(true)
+    }
+      else if (seconds > 0) {
+      setActive(true)
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else if (seconds === 0) {
-      {
-        setSeconds("DON'T ATTACK!");
-      }
-      setActive(false);
-      setTimeout(() => {
-        setSeconds(Math.floor(Math.random() * 3));
-      }, 1000);
-    }
-  }, [seconds]);
+      setSeconds("DON'T ATTACK!")
+      setActive(false)
+      setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
+    } 
+  }, [seconds, game.isDead, gametimer]);
 
-  const [gametimer, setGameTimer] = React.useState(15);
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (game.isDead || gametimer === 0) {
-      {
-        setGameTimer(-1);
-      }
-      {
-        setSeconds(-1);
-      }
-    } else if (gametimer > 0) {
-      setTimeout(() => setGameTimer(gametimer - 1), 1000);
+      setGameTimer(-1)
+      setSeconds("") 
     }
-  }, [gametimer]);
+      else if (gametimer > 0) {
+      setTimeout(() => setGameTimer(gametimer - 1), 1000);
+    } 
+  }, [gametimer, game.isDead]);
 
   if (gametimer === 0) {
     killPlayer();
@@ -132,7 +121,7 @@ export const GameView = ({ loggedIn }) => {
           <div className="attack">
             {game.isDead ? (
               <div>
-                <GameOver gameScore={game.score} />
+                <MemoGameOver gameScore={game.score} />
               </div>
             ) : (
               <Button onClick={handleClick}>Attack</Button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useScoreboardAPI } from "../../hooks/useScoreboardAPI";
 import Score from "./Score";
 import Button from "@material-ui/core/Button";
@@ -7,9 +7,11 @@ import { Grid } from "@material-ui/core";
 
 export const Scoreboard = () => {
   const topTen = useScoreboardAPI();
+  const [loggedIn, setLoggedIn] = useState(true);
 
   const handleClick = () => {
     callApi();
+    setLoggedIn(false);
   };
 
   return (
@@ -35,16 +37,26 @@ export const Scoreboard = () => {
           Play
         </Button>
 
+        {loggedIn ? 
+        <Button
+          className="alternative-btn"
+          onClick={handleClick}
+          variant="contained"
+          color="primary"
+        >  
+        Logout
+        </Button>
+        :
         <Button
           className="alternative-btn"
           component={Link}
           to="/"
-          onClick={handleClick}
           variant="contained"
           color="primary"
         >
-          Logout
+        Continue
         </Button>
+        }
       </Grid>
     </Grid>
   );

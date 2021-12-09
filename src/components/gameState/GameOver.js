@@ -3,16 +3,14 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { Howl } from "howler"; // Howler JS Audio library
 import React from "react";
-import GameEndTheme from "../../audioclips/game_over.mp3";
-import { margin } from "@mui/system";
+import GameEndTheme from "../../audioclips/over.mp3";
 
-export const GameOver = ({ gameScore }) => {
+const GameOver = ({ gameScore }) => {
   useScoreAPI();
 
   const gameover = new Howl({
     src: GameEndTheme,
-
-    volume: 0.1,
+    volume: 0.3,
   });
 
   gameover.play()
@@ -33,3 +31,5 @@ export const GameOver = ({ gameScore }) => {
     </div>
   );
 };
+
+export const MemoGameOver = React.memo(GameOver)
