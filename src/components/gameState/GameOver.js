@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { Howl } from "howler"; // Howler JS Audio library
 import React from "react";
-import GameEndTheme from "../../audioclips/game_over.mp3";
+import GameEndTheme from "../../audioclips/over.mp3";
 
 const GameOver = ({ gameScore }) => {
   useScoreAPI();
