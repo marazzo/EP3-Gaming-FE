@@ -3,7 +3,7 @@ import React from "react";
 const HealthBar = (props) => {
   return (
     <div>
-      <progress value={props.game.health} max="100"></progress>
+      <progress value={props.game.health} max="1000"></progress>
     </div>
   );
 };
