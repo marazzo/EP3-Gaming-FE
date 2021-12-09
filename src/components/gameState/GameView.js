@@ -32,8 +32,8 @@ export const GameView = ({ loggedIn }) => {
 
   const no = new Howl({
     src: No,
-    volume: 0.2
-  })
+    volume: 0.2,
+  });
 
   const handleClick = () => {
     if (active) {
@@ -41,14 +41,11 @@ export const GameView = ({ loggedIn }) => {
 
       punch.play();
       toggleImage();
-
-    }
-      else
-      {
+    } else {
       changeTurnDoubleDamage();
       no.play();
       toggleImage();
-      }
+    }
   };
 
   useEffect(() => {
@@ -76,8 +73,8 @@ export const GameView = ({ loggedIn }) => {
     } 
   }, [gametimer, game.isDead]);
 
-  if ( gametimer === 0 ) {
-    killPlayer()
+  if (gametimer === 0) {
+    killPlayer();
   }
 
   return (
@@ -88,25 +85,35 @@ export const GameView = ({ loggedIn }) => {
     >
       <ExitBox />
 
-
       <Grid container className="game-bg">
         <Grid item xs={12} justifyContent="center">
-          <HealthBar game={game} />
+          <div className="bars">
+            <HealthBar game={game} />
+            <div className="bar-box">
+              <progress
+                className="timer"
+                id="file"
+                value={gametimer}
+                max="15"
+              ></progress>
+              <p style={{ marginTop: "10px" }}>Time Remaining</p>
+            </div>
+          </div>
           <div className="stats-box">
             <p className="stats-text">Score: {game.score}</p>
             <p className="stats-text">Health: {game.health}</p>
           </div>
         </Grid>
-        <Grid item xs={6}>
-            Time Remaining <progress id="file" value={gametimer} max="15"></progress>
-        </Grid>
+        <Grid item xs={12}></Grid>
         <Grid item xs={12}>
           {" "}
         </Grid>
         <Grid item xs={5}>
           <Hero isAttacking={isAttacking} />
         </Grid>
-        <Grid item xs={2}><h2>{!active && seconds}</h2></Grid>
+        <Grid item xs={2}>
+          <h2>{!active && seconds}</h2>
+        </Grid>
         <Grid item xs={5}>
           <MemoMonster />
         </Grid>
@@ -120,7 +127,6 @@ export const GameView = ({ loggedIn }) => {
               <Button onClick={handleClick}>Attack</Button>
             )}
           </div>
-
         </Grid>
       </Grid>
     </Grid>

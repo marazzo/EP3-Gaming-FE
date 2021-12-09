@@ -62,9 +62,6 @@ export const Scoreboard = () => {
   );
 };
 
-
-
-
 const callApi = async () => {
   const url = "/logout";
   const options = {
