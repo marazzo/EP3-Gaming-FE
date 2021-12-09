@@ -1,8 +1,8 @@
-import React from 'react';
 import { useScoreAPI } from "../../hooks/useScoreAPI";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import {Howl} from "howler";  // Howler JS Audio library
+import React from 'react'
 import GameEndTheme from "../../audioclips/game_over.mp3" 
 
 export const GameOver = ({ gameScore }) => {
@@ -12,7 +12,9 @@ export const GameOver = ({ gameScore }) => {
     src: GameEndTheme,
     volume: 0.2
   })
-  gameover.play() //game over mp3
+
+  gameover.play()
+  
 
   return (
     <div>
