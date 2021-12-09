@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { Howl } from "howler"; // Howler JS Audio library
 import React from "react";
 import GameEndTheme from "../../audioclips/game_over.mp3";
-import { margin } from "@mui/system";
 
-export const GameOver = ({ gameScore }) => {
+const GameOver = ({ gameScore }) => {
   useScoreAPI();
 
   const gameover = new Howl({
@@ -33,3 +32,5 @@ export const GameOver = ({ gameScore }) => {
     </div>
   );
 };
+
+export const MemoGameOver = React.memo(GameOver)
