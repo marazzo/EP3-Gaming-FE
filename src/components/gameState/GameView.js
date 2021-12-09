@@ -79,11 +79,16 @@ export const GameView = ({ loggedIn }) => {
         <ExitBox />
 
         <Grid container className="game-bg">
-          <Grid item xs={6}>
+          <Grid item xs={12} justifyContent="center">
             <HealthBar game={game} />
+            <div className="stats-box">
+              <p className="stats-text">Score: {game.score}</p>
+              <p className="stats-text">Health: {game.health}</p>
+            </div>
           </Grid>
-          <Grid item xs={6}></Grid>
-          <Grid item xs={12}></Grid>
+          <Grid item xs={12}>
+            {" "}
+          </Grid>
           <Grid item xs={5}>
             <Hero isAttacking={isAttacking} />
           </Grid>
@@ -93,9 +98,6 @@ export const GameView = ({ loggedIn }) => {
           </Grid>
           <Grid item xs={12}></Grid>
         </Grid>
-
-        <div>Score: {game.score}</div>
-        <div>Health: {game.health}</div>
 
         <div>
           {game.isDead ? (

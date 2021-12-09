@@ -1,10 +1,10 @@
 const MonsterName = () => {
   const monsterNames = [
-    "Rails Scaffold",
-    "JS Async",
-    "React",
-    "Copy/Pasta",
-    "Passport JS",
+    "Rails Scaffold Orc",
+    "JS Async Ghost",
+    "React Ghoul",
+    "Copy/Pasta Zombie",
+    "Passport JS Wraith",
   ];
   const randomMonsterName =
     monsterNames[Math.floor(Math.random() * monsterNames.length)];
