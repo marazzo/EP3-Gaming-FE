@@ -81,14 +81,14 @@
   margin-top: 3em;
   justify-content: center;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .monster-box {
   display: flex;
   margin-top: 3em;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .monster {

@@ -34,7 +34,7 @@ export const HomePage = ({ loggedIn, setLoggedIn, playing, setPlaying }) => {
       bernard.play()
       setPlaying(true)
     }
-  }, []);
+  }, [bernard, playing, setPlaying]);
 
 
   return (
