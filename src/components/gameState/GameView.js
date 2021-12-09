@@ -13,16 +13,23 @@ import Button from "@material-ui/core/Button";
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn, changeTurnDoubleDamage, killPlayer] = useGameAPI(); //[gameData, changeTurn]
-  const [isAttacking, setIsAttacking] = useState(false);
+  const [isAttacking, setIsAttacking] = useState(1);
   const [seconds, setSeconds] = useState(3);
   const [active, setActive] = useState(true);
   const [gametimer, setGameTimer] = useState(15);
 
   const toggleImage = () => {
-    setIsAttacking(!isAttacking);
+    setIsAttacking(3);
     setTimeout(() => {
-      setIsAttacking(false);
-    }, 166);
+      setIsAttacking(1);
+    }, 26);
+  };
+
+  const toggleHurt = () => {
+    setIsAttacking(2);
+    setTimeout(() => {
+      setIsAttacking(1);
+    }, 966);
   };
 
   const punch = new Howl({
@@ -44,7 +51,7 @@ export const GameView = ({ loggedIn }) => {
     } else {
       changeTurnDoubleDamage();
       no.play();
-      toggleImage();
+      toggleHurt();
     }
   };
 
