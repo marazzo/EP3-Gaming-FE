@@ -61,6 +61,11 @@
   animation-duration: 1s;
 }
 
+.hero-box {
+  display: flex;
+  justify-content: center;
+}
+
 .monster {
   max-width: 40%;
   animation-name: moveMonster;
@@ -78,10 +83,13 @@
   margin: 0.1rem;
   padding: 10px 5rem;
   border: 3px solid black;
-  max-width: 100px;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.443);
+}
+
+.score-name {
   display: flex;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.443);
 }
 
 .scores {
@@ -142,6 +150,7 @@
   background-color: lightcoral !important;
   color: black !important;
   margin: 0 20px !important;
+  padding: 1rem 2rem !important;
 }
 
 .btn-container {
