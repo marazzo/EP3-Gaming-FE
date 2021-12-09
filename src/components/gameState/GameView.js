@@ -89,7 +89,7 @@ export const GameView = ({ loggedIn }) => {
           </Grid>
           <Grid item xs={4}></Grid>
           <Grid item xs={4}>
-            <Monster />
+            <MemoMonster />
           </Grid>
           <Grid item xs={12}></Grid>
         </Grid>
@@ -103,13 +103,10 @@ export const GameView = ({ loggedIn }) => {
               <GameOver gameScore={game.score} />
             </div>
           ) : (
-            <button onClick={handleClick}>
-              Attack
-            </button>
+            <button onClick={handleClick}>Attack</button>
           )}
         </div>
       </Grid>
-
     </>
   );
 };
