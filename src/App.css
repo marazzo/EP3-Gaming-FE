@@ -30,6 +30,18 @@
   margin-right: 20px;
 }
 
+.character-name {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px white;
+  margin-right: 60px;
+}
+
+.monster-name {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px white;
+  margin-left: 120px;
+}
+
 .title-name {
   font-size: 6rem;
   text-shadow: 2px 3px white;
@@ -54,24 +66,34 @@
 }
 
 .hero {
-  max-width: 30%;
+  max-width: 40%;
   animation-name: moveHero;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
+  margin-top: 40px;
 }
 
 .hero-box {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: end;
+}
+
+.monster-box {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .monster {
-  max-width: 40%;
+  max-width: 60%;
   animation-name: moveMonster;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 1s;
+  margin-bottom: 80px;
 }
 
 .scoreboard {

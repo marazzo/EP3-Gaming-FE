@@ -84,11 +84,11 @@ export const GameView = ({ loggedIn }) => {
           </Grid>
           <Grid item xs={6}></Grid>
           <Grid item xs={12}></Grid>
-          <Grid item xs={4}>
+          <Grid item xs={5}>
             <Hero isAttacking={isAttacking} />
           </Grid>
-          <Grid item xs={4}></Grid>
-          <Grid item xs={4}>
+          <Grid item xs={2}></Grid>
+          <Grid item xs={5}>
             <MemoMonster />
           </Grid>
           <Grid item xs={12}></Grid>
