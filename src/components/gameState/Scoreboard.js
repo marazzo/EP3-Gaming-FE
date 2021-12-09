@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 
 export const Scoreboard = () => {
   const topTen = useScoreboardAPI();
+
+  const handleClick = () => {
+    callApi();
+  };
+
   return (
     <div className="scoreboard">
       <h1>High Scores</h1>
@@ -21,9 +26,24 @@ export const Scoreboard = () => {
         Play
       </Button>
 
-      <Button className = "scorebtn" component={Link} to="/home" variant="contained" color="primary">
+      <Button className = "scorebtn" component={Link} to="/" onClick={handleClick} variant="contained" color="primary">
         Logout
       </Button>
     </div>
   );
+};
+
+
+const callApi = async () => {
+  const url = "/logout";
+  const options = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
+  const res = await fetch(url, options);
+  const response = res.status;
+  console.log(response);
 };

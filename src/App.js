@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <Layout loggedIn={loggedIn} setLoggedIn={setLoggedIn}>
+        <Layout>
           <Routes>
             <Route
               path="/"
