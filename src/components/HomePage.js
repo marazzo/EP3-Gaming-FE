@@ -9,7 +9,7 @@ import { Howl } from "howler"; // Howler JS Audio library
 import Bernard from "../audioclips/bernard.mp3"
 
 
-export const HomePage = ({ loggedIn, setLoggedIn }) => {
+export const HomePage = ({ loggedIn, setLoggedIn, playing, setPlaying }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -30,7 +30,10 @@ export const HomePage = ({ loggedIn, setLoggedIn }) => {
   });
 
   React.useEffect(() => {
-    bernard.play()
+    if (!playing) {
+      bernard.play()
+      setPlaying(true)
+    }
   }, []);
 
 
