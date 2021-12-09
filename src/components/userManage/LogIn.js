@@ -63,7 +63,6 @@ export const LogIn = ({ loggedIn, setLoggedIn, setDisplay, toggleOpen }) => {
         </div>
       ) : (
         <div>
-          <h3>You have logged in!</h3>
           <Button
             className="intro-btn"
             type="submit"
