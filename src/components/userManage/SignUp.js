@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = ({ setDisplay }) => {
+const SignUp = ({ setDisplay, toggleOpen }) => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,31 +29,34 @@ const SignUp = ({ setDisplay }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     callAPI(username, password, setDisplay);
+    toggleOpen();
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
-      <TextField
-        label="Username"
-        variant="filled"
-        required
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <TextField
-        label="Password"
-        variant="filled"
-        type="password"
-        required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <div>
-        <Button type="submit" variant="contained" color="primary">
-          Signup
-        </Button>
-      </div>
-    </form>
+    <>
+      <form className={classes.root} onSubmit={handleSubmit}>
+        <TextField
+          label="Username"
+          variant="filled"
+          required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <TextField
+          label="Password"
+          variant="filled"
+          type="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div>
+          <Button type="submit" variant="contained" color="primary">
+            Signup
+          </Button>
+        </div>
+      </form>
+    </>
   );
 };
 

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const LogIn = ({ loggedIn, setLoggedIn, setDisplay }) => {
+export const LogIn = ({ loggedIn, setLoggedIn, setDisplay, toggleOpen }) => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +30,7 @@ export const LogIn = ({ loggedIn, setLoggedIn, setDisplay }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     callAPI(username, password, setLoggedIn, setDisplay);
+    toggleOpen();
   };
 
   return (
