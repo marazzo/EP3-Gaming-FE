@@ -115,7 +115,7 @@ export const GameView = ({ loggedIn }) => {
           <h2>{!active && seconds}</h2>
         </Grid>
         <Grid item xs={5}>
-          <MemoMonster />
+          <MemoMonster isAttacking={isAttacking} />
         </Grid>
         <Grid item xs={12}>
           <div className="attack">
