@@ -9,11 +9,12 @@ import { Howl } from "howler"; // Howler JS Audio library
 import Punch from "../../audioclips/hit.mp3" 
 import No from "../../audioclips/no.wav" 
 import { ExitBox } from "./ExitBox";
+import { SliderValueLabel } from "@mui/material";
    
 
 export const GameView = ({ loggedIn }) => {
-  const [game, changeTurn, changeTurnDoubleDamage] = useGameAPI(); //[gameData, changeTurn]
-  const [isAttacking, setIsAttacking] = useState(false);
+  const [game, changeTurn, changeTurnDoubleDamage, killPlayer] = useGameAPI(); //[gameData, changeTurn]
+  const [isAttacking, setIsAttacking] = React.useState(false);
 
   const toggleImage = () => {
     setIsAttacking(!isAttacking);
@@ -22,12 +23,12 @@ export const GameView = ({ loggedIn }) => {
 
   const punch = new Howl({
     src: Punch,
-    volume: 0.8,
+    volume: 0.2,
   });
   
     const no = new Howl({
     src: No,
-    volume: 0.8
+    volume: 0.2
   })
 
   const handleClick = () => {
@@ -52,19 +53,39 @@ export const GameView = ({ loggedIn }) => {
     }
   };
 
-  const [seconds, setSeconds] = React.useState(5);
+  const [seconds, setSeconds] = React.useState(3);
   const [active, setActive] = React.useState(true);
 
   React.useEffect(() => {
-    if (seconds > 0) {
+    if (game.isDead || gametimer === 0) {
+      {setSeconds(-1)} 
+      setActive(true)
+    }
+      else if (seconds > 0) {
       setActive(true)
       setTimeout(() => setSeconds(seconds - 1), 1000);
-    } else if (seconds == 0) {
-      {setSeconds('MONSTER ATTACKS YOU')}
+    } else if (seconds === 0) {
+      {setSeconds("DON'T ATTACK!")}
       setActive(false)
       setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
+    } 
+  }, [seconds]);
+  
+  const [gametimer, setGameTimer] = React.useState(15);
+
+  React.useEffect(() => {
+    if (game.isDead || gametimer === 0) {
+      {setGameTimer(-1)}
+      {setSeconds(-1)}  
     }
-  },);
+      else if (gametimer > 0) {
+      setTimeout(() => setGameTimer(gametimer - 1), 1000);
+    } 
+  }, [gametimer]);
+
+  if ( gametimer === 0 ) {
+    killPlayer()
+  }
 
   return (
     <>
@@ -79,22 +100,21 @@ export const GameView = ({ loggedIn }) => {
 
           <Grid container className="game-bg">
             <Grid item xs={6}>
-              <HealthBar game={game} />
+            <div>Player Health <progress id="file" value={game.health} max="1000"></progress></div>
+            <div>Health: {game.health}</div>
+            <div>Score: {game.score}</div>
             </Grid>
-            <Grid item xs={6}></Grid>
+            <Grid item xs={6}>Time Remaining <progress id="file" value={gametimer} max="15"></progress></Grid>
             <Grid item xs={12}></Grid>
             <Grid item xs={4}>
               <Hero isAttacking={isAttacking} />
             </Grid>
-            <Grid item xs={4}></Grid>
+            <Grid item xs={4}><h2>{!active && seconds}</h2></Grid>
             <Grid item xs={4}>
               <Monster />
             </Grid>
             <Grid item xs={12}></Grid>
           </Grid>
-
-          <div>Score: {game.score}</div>
-          <div>Health: {game.health}</div>
 
           <div>
             {game.isDead ? (
@@ -106,6 +126,7 @@ export const GameView = ({ loggedIn }) => {
                 Attack
               </button>
             )}
+
           </div>
         </Grid>
       ) : (

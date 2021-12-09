@@ -3,6 +3,7 @@ import React from "react";
 import { LogOut } from "./userManage/LogOut";
 
 export const Navbar = ({ loggedIn, setLoggedIn }) => {
+
   return (
     <Grid
       container

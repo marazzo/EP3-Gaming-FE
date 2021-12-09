@@ -5,6 +5,9 @@ import Button from "@material-ui/core/Button";
 import { Grid } from "@material-ui/core";
 import { Title } from "./Title";
 import React from "react";
+import { Howl } from "howler"; // Howler JS Audio library
+import Bernard from "../audioclips/bernard.mp3"
+
 
 export const HomePage = ({ loggedIn, setLoggedIn }) => {
   const [showLogin, setShowLogin] = useState(false);
@@ -19,6 +22,17 @@ export const HomePage = ({ loggedIn, setLoggedIn }) => {
     setShowLogin(false);
     setShowSignup(true);
   };
+
+  const bernard = new Howl({
+    src: Bernard,
+    volume: 0.4,
+    loop: true
+  });
+
+  React.useEffect(() => {
+    bernard.play()
+  }, []);
+
 
   return (
     <div>
