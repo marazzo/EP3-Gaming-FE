@@ -79,6 +79,7 @@
 
 .hero-box {
   display: flex;
+  margin-top: 3em;
   justify-content: center;
   flex-direction: column;
   align-items: end;
@@ -86,6 +87,7 @@
 
 .monster-box {
   display: flex;
+  margin-top: 3em;
   flex-direction: column;
   align-items: start;
 }
@@ -218,4 +220,18 @@ progress::-webkit-progress-value {
   font-size: 1.5em;
   margin: 2px 0;
   text-shadow: 1px 2px white;
+}
+
+.attack {
+  display: flex;
+  justify-content: center;
+}
+
+.attack button {
+  padding: 2rem 3rem !important;
+  margin: 1rem 2rem !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  background-color: red !important;
+  color: white !important;
+  font-size: 1.5em;
 }
