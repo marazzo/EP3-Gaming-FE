@@ -10,6 +10,7 @@ import React from "react";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [playing, setPlaying] = useState();
 
   return (
     <div>
@@ -19,7 +20,7 @@ const App = () => {
             <Route
               path="/"
               element={
-                <HomePage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+                <HomePage loggedIn={loggedIn} setLoggedIn={setLoggedIn} playing={playing} setPlaying={setPlaying} />
               }
             />
             <Route path="/game" element={<GameView loggedIn={loggedIn} />} />
