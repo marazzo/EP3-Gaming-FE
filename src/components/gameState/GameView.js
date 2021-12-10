@@ -13,27 +13,24 @@ import Button from "@material-ui/core/Button";
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn, changeTurnDoubleDamage, killPlayer] = useGameAPI(); //[gameData, changeTurn]
-  const [isAttacking, setIsAttacking] = useState(1);
+  const [isAttacking, setIsAttacking] = useState(0);
   const [monsterAttacking, setMonsterAttacking] = useState(false);
-  const [seconds, setSeconds] = useState(3);
+  const [seconds, setSeconds] = useState(2);
   const [active, setActive] = useState(true);
   const [gametimer, setGameTimer] = useState(15);
 
   const toggleImage = () => {
-    setIsAttacking(3);
+    setIsAttacking(2);
     setMonsterAttacking(true);
     setTimeout(() => {
-      setIsAttacking(1);
+      setIsAttacking(0);
     }, 26);
-    setTimeout(() => {
-      setMonsterAttacking(false);
-    }, 166);
   };
 
   const toggleHurt = () => {
-    setIsAttacking(2);
+    setIsAttacking(1);
     setTimeout(() => {
-      setIsAttacking(1);
+      setIsAttacking(0);
     }, 966);
   };
 
@@ -124,7 +121,7 @@ export const GameView = ({ loggedIn }) => {
           <h2>{!active && seconds}</h2>
         </Grid>
         <Grid item xs={5}>
-          <MemoMonster monsterAttacking={monsterAttacking}/>
+          <MemoMonster isAttacking={isAttacking}/>
         </Grid>
         <Grid item xs={12}>
           <div className="attack">

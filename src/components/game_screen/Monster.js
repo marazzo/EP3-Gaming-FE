@@ -3,7 +3,7 @@ import monsterArray from "../../assets/monsters/monsterArray";
 import monsterAttackArray from "../../assets/monsters/monsterAttackArray";
 import { MemoMonsterName } from "./MonsterName";
 
-const Monster = ({ monsterAttacking }) => {
+const Monster = ({ isAttacking }) => {
   const [index, setIndex]= useState(null)
   useEffect(()=>{
     const randomIndex = Math.floor(Math.random() * monsterArray.length)
@@ -11,7 +11,7 @@ const Monster = ({ monsterAttacking }) => {
   }, [])
   const randomMonster = monsterArray[index]
 
-  const monsterImage = monsterAttacking ? monsterAttackArray[index] : randomMonster
+  const monsterImage = isAttacking ? monsterAttackArray[index] : randomMonster
 
   return (
     <div className="monster-box">

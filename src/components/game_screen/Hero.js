@@ -5,7 +5,7 @@ import HeroHurt from "../../assets/heroHurt.png";
 import HeroName from "./HeroName";
 
 const Hero = ({ isAttacking }) => {
-  const heroImage = isAttacking >= 3 ? HeroAttack : (isAttacking == 2 ? HeroHurt : HeroIdle);
+  const heroImage = isAttacking >= 2 ? HeroAttack : (isAttacking == 1 ? HeroHurt : HeroIdle);
 
   return (
     <div className="hero-box">
