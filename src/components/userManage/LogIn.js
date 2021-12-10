@@ -22,14 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const LogIn = ({ loggedIn, setLoggedIn }) => {
+export const LogIn = ({ loggedIn, setLoggedIn, setDisplay, toggleOpen }) => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    callAPI(username, password, setLoggedIn);
+    callAPI(username, password, setLoggedIn, setDisplay);
+    toggleOpen();
   };
 
   return (
@@ -62,7 +63,6 @@ export const LogIn = ({ loggedIn, setLoggedIn }) => {
         </div>
       ) : (
         <div>
-          <h3>You have logged in!</h3>
           <Button
             className="intro-btn"
             type="submit"
@@ -78,7 +78,7 @@ export const LogIn = ({ loggedIn, setLoggedIn }) => {
   );
 };
 
-const callAPI = (username, password, setLoggedIn) => {
+const callAPI = (username, password, setLoggedIn, setDisplay) => {
   const user = { username: username, password: password };
   const options = {
     method: "post",
@@ -96,6 +96,7 @@ const callAPI = (username, password, setLoggedIn) => {
       if (data.success === true) {
         setLoggedIn(true);
       }
+      setDisplay(data.message);
     })
     .catch((err) => {
       console.log(err);

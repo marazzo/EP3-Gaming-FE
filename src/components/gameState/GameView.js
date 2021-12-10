@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from "react";
+import React, { useState, useEffect } from "react";
 import { useGameAPI } from "../../hooks/useGameAPI";
 import { MemoGameOver } from "./GameOver";
 import HealthBar from "../game_screen/HealthBar";
@@ -50,7 +50,6 @@ export const GameView = ({ loggedIn }) => {
   const handleClick = () => {
     if (active) {
       changeTurn();
-
       punch.play();
       toggleImage();
     } else {
@@ -62,33 +61,32 @@ export const GameView = ({ loggedIn }) => {
 
   useEffect(() => {
     if (game.isDead || gametimer === 0) {
-      setSeconds(-1) 
-      setActive(true)
-    }
-      else if (seconds > 0) {
-      setActive(true)
+      setSeconds(-1);
+      setActive(true);
+    } else if (seconds > 0) {
+      setActive(true);
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else if (seconds === 0) {
-      setSeconds("DON'T ATTACK!")
-      setActive(false)
-      setTimeout(() => {setSeconds(Math.floor(Math.random()*3))}, 1000) 
-    } 
+      setSeconds(<p className="dont">DON'T ATTACK!</p>);
+      setActive(false);
+      setTimeout(() => {
+        setSeconds(Math.floor(Math.random() * 3));
+      }, 1000);
+    }
   }, [seconds, game.isDead, gametimer]);
 
   useEffect(() => {
     if (game.isDead || gametimer === 0) {
-      setGameTimer(-1)
-      setSeconds("") 
-    }
-      else if (gametimer > 0) {
+      setGameTimer(-1);
+      setSeconds("");
+    } else if (gametimer > 0) {
       setTimeout(() => setGameTimer(gametimer - 1), 1000);
-    } 
+    }
   }, [gametimer, game.isDead]);
 
   if (gametimer === 0) {
     killPlayer();
   }
-
   return (
     <Grid
       className="game-container"
@@ -96,7 +94,6 @@ export const GameView = ({ loggedIn }) => {
       alignItems="center"
     >
       <ExitBox />
-
       <Grid container className="game-bg">
         <Grid item xs={12} justifyContent="center">
           <div className="bars">
