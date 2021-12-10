@@ -13,16 +13,25 @@ import Button from "@material-ui/core/Button";
 
 export const GameView = ({ loggedIn }) => {
   const [game, changeTurn, changeTurnDoubleDamage, killPlayer] = useGameAPI(); //[gameData, changeTurn]
-  const [isAttacking, setIsAttacking] = useState(false);
-  const [seconds, setSeconds] = useState(3);
+  const [isAttacking, setIsAttacking] = useState(0);
+  const [monsterAttacking, setMonsterAttacking] = useState(false);
+  const [seconds, setSeconds] = useState(2);
   const [active, setActive] = useState(true);
   const [gametimer, setGameTimer] = useState(15);
 
   const toggleImage = () => {
-    setIsAttacking(!isAttacking);
+    setIsAttacking(2);
+    setMonsterAttacking(true);
     setTimeout(() => {
-      setIsAttacking(false);
-    }, 166);
+      setIsAttacking(0);
+    }, 26);
+  };
+
+  const toggleHurt = () => {
+    setIsAttacking(1);
+    setTimeout(() => {
+      setIsAttacking(0);
+    }, 966);
   };
 
   const punch = new Howl({
@@ -38,13 +47,12 @@ export const GameView = ({ loggedIn }) => {
   const handleClick = () => {
     if (active) {
       changeTurn();
-
       punch.play();
       toggleImage();
     } else {
       changeTurnDoubleDamage();
       no.play();
-      toggleImage();
+      toggleHurt();
     }
   };
 
@@ -76,7 +84,6 @@ export const GameView = ({ loggedIn }) => {
   if (gametimer === 0) {
     killPlayer();
   }
-
   return (
     <Grid
       className="game-container"
@@ -84,7 +91,6 @@ export const GameView = ({ loggedIn }) => {
       alignItems="center"
     >
       <ExitBox />
-
       <Grid container className="game-bg">
         <Grid item xs={12} justifyContent="center">
           <div className="bars">
@@ -115,7 +121,7 @@ export const GameView = ({ loggedIn }) => {
           <h2>{!active && seconds}</h2>
         </Grid>
         <Grid item xs={5}>
-          <MemoMonster isAttacking={isAttacking} />
+          <MemoMonster isAttacking={isAttacking}/>
         </Grid>
         <Grid item xs={12}>
           <div className="attack">
